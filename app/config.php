@@ -1,6 +1,8 @@
 <?php
 
-define('SERVERNAME', 'localhost');
-define('USERNAME', 'root');
-define('PASSWORD', '');
-define('DB', 'desatranques');
+$db_info = [
+    "db_host" => "localhost",
+    "db_user" => "root",
+    "db_pass" => "",
+    "db_name" => "desatranques"
+];
