@@ -1,18 +1,31 @@
 <?php
 
-include __DIR__ . '/../config.php';
+class DB
+{
 
-$servername = SERVERNAME;
-$db = DB;
-$username = USERNAME;
-$password = PASSWORD;
+    protected static $con;
 
-// INTENTA CONECTAR A LA BASE DE DATOS
-try {
-    $con = new PDO("mysql:host={$servername};dbname={$db}", $username, $password);
-}
-  
-// MUESTRA ERROR SI LA CONEXION FALLA
-catch(PDOException $exception){
-    echo "Connection error: " . $exception->getMessage();
+    protected function __construct()
+    {
+    }
+
+    public static function getcon()
+    {
+
+        if (empty(self::$con)) {
+
+            include __DIR__ . '/../config.php';
+
+            try {
+                self::$con = new PDO("mysql:host=" . $db_info['db_host'] . ';dbname=' . $db_info['db_name'], $db_info['db_user'], $db_info['db_pass']);
+                self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+                self::$con->query('SET NAMES utf8');
+                self::$con->query('SET CHARACTER SET utf8');
+            } catch (PDOException $error) {
+                echo $error->getMessage();
+            }
+        }
+
+        return self::$con;
+    }
 }
