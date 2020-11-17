@@ -5,13 +5,25 @@
 
         // BOTON IR A PRIMERA PAGINA
         if ($pagina > 1) {
-            $paginaAnterior = $pagina - 1;
-            echo "<li class='page-item'>";
-            echo "<a class='page-link' href='{$paginaUrl}page={$paginaAnterior}'>";
-            echo "<span>Anterior</span>";
-            echo "</a>";
-            echo "</li>";
+            echo "<li class='page-item mr-3'>";
+        } else {
+            echo "<li class='page-item mr-3 disabled'>";
         }
+        echo "<a class='page-link' href='{$paginaUrl}page=1'>";
+        echo "<span>Primera</span>";
+        echo "</a>";
+        echo "</li>";
+
+        // BOTON IR A PAGINA ANTERIOR
+        if ($pagina > 1) {
+            echo "<li class='page-item'>";
+        } else {
+            echo "<li class='page-item disabled'>";
+        }
+        echo "<a class='page-link' href='{$paginaUrl}page={$paginaAnterior}'>";
+        echo "<span>&laquo;</span>";
+        echo "</a>";
+        echo "</li>";
 
         // TOTAL DE PAGINAS
         $totalPaginas = ceil($totalFilas / $tareasPorPagina);
@@ -32,15 +44,28 @@
             }
         }
 
+        // BOTON IR A SIGUIENTE PAGINA
+        $paginaSiguiente = $pagina + 1;
+        if ($pagina < $totalPaginas) {
+            echo "<li class='page-item'>";
+        } else {
+            echo "<li class='page-item disabled'>";
+        }
+        echo "<a class='page-link' href='{$paginaUrl}page={$paginaSiguiente}'>";
+        echo "<span>&raquo;</span>";
+        echo "</a>";
+        echo "</li>";
+
         // BOTON IR A ULTIMA PAGINA
         if ($pagina < $totalPaginas) {
-            $paginaSiguiente = $pagina + 1;
-            echo "<li class='page-item'>";
-            echo "<a class='page-link' href='{$paginaUrl}page={$paginaSiguiente}'>";
-            echo "<span>Siguiente</span>";
-            echo "</a>";
-            echo "</li>";
+            echo "<li class='page-item ml-3'>";
+        } else {
+            echo "<li class='page-item ml-3 disabled'>";
         }
+        echo "<a class='page-link' href='{$paginaUrl}page={$totalPaginas}'>";
+        echo "<span>Última</span>";
+        echo "</a>";
+        echo "</li>";
 
         ?>
 
