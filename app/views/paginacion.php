@@ -2,72 +2,60 @@
     <ul class='pagination'>
 
         <?php
-
-        // BOTON IR A PRIMERA PAGINA
-        if ($pagina > 1) {
-            echo "<li class='page-item mr-3'>";
-        } else {
-            echo "<li class='page-item mr-3 disabled'>";
-        }
-        echo "<a class='page-link' href='{$paginaUrl}page=1'>";
-        echo "<span>Primera</span>";
-        echo "</a>";
-        echo "</li>";
-
-        // BOTON IR A PAGINA ANTERIOR
-        if ($pagina > 1) {
-            echo "<li class='page-item'>";
-        } else {
-            echo "<li class='page-item disabled'>";
-        }
-        echo "<a class='page-link' href='{$paginaUrl}page={$paginaAnterior}'>";
-        echo "<span>&laquo;</span>";
-        echo "</a>";
-        echo "</li>";
-
-        // TOTAL DE PAGINAS
         $totalPaginas = ceil($totalFilas / $tareasPorPagina);
-
-        // BOTONES DE PAGINAS
+        $paginaSiguiente = $pagina + 1;
+        $paginaAnterior = $pagina - 1;
         $rango = 2;
         $numeroInicio = $pagina - $rango;
-        $numeroLimite = ($pagina + $rango)  + 1;
+        $numeroLimite = ($pagina + $rango) + 1;
+
+        $paginas = [];
         for ($x = $numeroInicio; $x < $numeroLimite; $x++) {
             if (($x > 0) && ($x <= $totalPaginas)) {
-                if ($x == $pagina) {
-                    echo "<li class='page-item active'>";
-                } else {
-                    echo "<li class='page-item'>";
-                }
-                echo " <a class='page-link' href='{$paginaUrl}page={$x}'>{$x}</a> ";
-                echo "</li>";
+                $paginas[] = [
+                    'active' => $x == $pagina,
+                    'numero' => $x
+                ];
             }
         }
-
-        // BOTON IR A SIGUIENTE PAGINA
-        $paginaSiguiente = $pagina + 1;
-        if ($pagina < $totalPaginas) {
-            echo "<li class='page-item'>";
-        } else {
-            echo "<li class='page-item disabled'>";
-        }
-        echo "<a class='page-link' href='{$paginaUrl}page={$paginaSiguiente}'>";
-        echo "<span>&raquo;</span>";
-        echo "</a>";
-        echo "</li>";
-
-        // BOTON IR A ULTIMA PAGINA
-        if ($pagina < $totalPaginas) {
-            echo "<li class='page-item ml-3'>";
-        } else {
-            echo "<li class='page-item ml-3 disabled'>";
-        }
-        echo "<a class='page-link' href='{$paginaUrl}page={$totalPaginas}'>";
-        echo "<span>Última</span>";
-        echo "</a>";
-        echo "</li>";
-
         ?>
+
+        <!-- BOTON IR A PRIMERA PAGINA -->
+        <li class='page-item mr3 <?= ($pagina > 1) ? "" : "disabled" ?>'>
+            <a class='page-link' href='<?= $paginaUrl ?>page=1'>
+                <span>Primera</span>
+            </a>
+        </li>
+
+        <!-- BOTON IR A PAGINA ANTERIOR -->
+        <li class='page-item <?= ($pagina > 1) ? "" : "disabled" ?>'>
+            <a class='page-link' href='<?= $paginaUrl ?>page=<?= $paginaAnterior ?>'>
+                <span>&laquo;</span>
+            </a>
+        </li>
+
+        <!-- BOTONES DE PAGINAS -->
+        <?php foreach ($paginas as $p) : ?>
+            <li class='page-item <?= $p['active'] ? 'active' : "" ?>'>
+                <a class='page-link' href='<?= $paginaUrl ?>page=<?= $p['numero'] ?>'>
+                    <?= $p['numero'] ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+
+        <!-- BOTON IR A SIGUIENTE PAGINA -->
+        <li class='page-item <?= ($pagina < $totalPaginas) ? "" : "disabled" ?>'>
+            <a class='page-link' href='<?= $paginaUrl ?>page=<?= $paginaSiguiente ?>'>
+                <span>&raquo;</span>
+            </a>
+        </li>
+
+        <!-- BOTON IR A ULTIMA PAGINA -->
+        <li class='page-item ml-3 <?= ($pagina < $totalPaginas) ? "" : "disabled" ?>'>
+            <a class='page-link' href='<?= $paginaUrl ?>page=<?= $totalPaginas ?>'>
+                <span>Última</span>
+            </a>
+        </li>
 
     </ul>
 </nav>
