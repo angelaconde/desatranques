@@ -26,6 +26,9 @@
         include 'models/connection.php';
         $con = DB::getcon();
 
+        // PROVINCIAS
+        include 'models/provincias.php';
+
         // PAGINACION
         $pagina = isset($_GET['page']) ? $_GET['page'] : 1;
         $tareasPorPagina = 5;
@@ -77,10 +80,11 @@
                 echo "<td>{$poblacion}</td>";
                 echo "<td>{$cp}</td>";
                 // PROVINCIA A LA QUE CORRESPONDE EL CODIGO
-                $sqlProv = 'SELECT nombre FROM provincias WHERE cod = ?';
-                $stmtProv = $con->prepare($sqlProv);
-                $stmtProv->execute([$provincia]);
-                $nombreProvincia = $stmtProv->fetchColumn();
+                // $sqlProv = 'SELECT nombre FROM provincias WHERE cod = ?';
+                // $stmtProv = $con->prepare($sqlProv);
+                // $stmtProv->execute([$provincia]);
+                // $nombreProvincia = $stmtProv->fetchColumn();
+                $nombreProvincia = provCodANombre($con, $provincia);
                 echo "<td>{$nombreProvincia}</td>";
                 // FIN DE PROVINCIA
                 echo "<td>{$estado}</td>";

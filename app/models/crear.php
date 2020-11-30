@@ -2,6 +2,7 @@
 
 // CONEXION A LA BASE DE DATOS
 include 'connection.php';
+$con = DB::getcon();
 
 // LISTA DE PROVINCIAS PARA RELLENAR EL SELECT DEL FORMULARIO
 $sqlProv = 'SELECT * FROM provincias';
@@ -127,7 +128,7 @@ if ($_POST) {
             </div>
 
             <div class="form-group">
-                <label for="descripcion" class="col-form-label">Descripción</label>
+                <label for="descripcion" class="col-form-label">Descripción de la tarea</label>
                 <textarea id="descripcion" name="descripcion" rows="3" class="form-control"></textarea>
             </div>
 
@@ -153,7 +154,7 @@ if ($_POST) {
                         <option selected disabled>Selecciona una Provincia</option>
                         <?php
                         foreach ($listaProvincias as $provincia) {
-                            echo '<option  value=' . $provincia['id'] . '>' . $provincia['nombre'] . '</option>';
+                            echo '<option  value=' . $provincia['cod'] . '>' . $provincia['nombre'] . '</option>';
                         }
                         ?>
                     </select>
