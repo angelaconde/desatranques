@@ -1,4 +1,4 @@
-<nav aria-label="Page navigation example">
+<nav aria-label="page navigation">
     <ul class='pagination'>
 
         <?php
