@@ -58,6 +58,18 @@
                 $nombreProvincia = provCodANombre($con, $provincia);
                 // FECHA FORMATEADA
                 $fechaFormateada = date("d/m/Y", strtotime($fecha_creacion));
+                // FORMATEAR ESTADO
+                switch ($estado) {
+                    case 'P':
+                        $estado = 'Pendiente';
+                        break;
+                    case 'R':
+                        $estado = 'Realizada';
+                        break;
+                    case 'C':
+                        $estado = 'Cancelada';
+                        break;
+                }
                 // FILA EN LA TABLA
             ?>
                 <tr>

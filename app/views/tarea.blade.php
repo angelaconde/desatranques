@@ -22,8 +22,22 @@
 
     while ($tarea = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($tarea);
+        // CONVERSION DE CODIGO DE PROVINCIA A NOMBRE
         $nombreProvincia = provCodANombre($con, $provincia);
+        // FORMATEAR FECHA A DIA/MES/AÑO
         $fechaFormateada = date("d/m/Y", strtotime($fecha_creacion));
+        // FORMATEAR ESTADO
+        switch ($estado) {
+            case 'P':
+                $estado = 'Pendiente';
+                break;
+            case 'R':
+                $estado = 'Realizada';
+                break;
+            case 'C':
+                $estado = 'Cancelada';
+                break;
+        }
         ?>
                 <div class="col container text-center p-3">
                     <div>
