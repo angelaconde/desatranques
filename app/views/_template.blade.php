@@ -1,16 +1,3 @@
-<!-- 
-LAYOUT DE LA APLICACIÓN 
-ESTA PÁGINA DISPONE DONDE IRÁN LOS DIFERENTES BLOQUES QUE CONFORMAN LA APLICACIÓN
-
-Se centra solamente en la presentación.
-Deberemos indicarle:
-    - titulo
-    - menu
-    - cuerpo
-
-Podría tener tantos parámetros como quisiesemos
-Igualmente nuestra aplicación podría tener tantos layouts como deseasemos
--->
 <!DOCTYPE html>
 <html>
 

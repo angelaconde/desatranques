@@ -11,7 +11,5 @@
 </div>
 </div>
 
-
-
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('_template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\desatranques\app\views/inicio.blade.php ENDPATH**/ ?>

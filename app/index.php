@@ -14,11 +14,6 @@ if (!defined('APP_PATH')) {
 // include (HELPERS_PATH.'vistas.php');
 include (CTRL_PATH.'tareas.php');
 
-
-//
-// SLIM
-//
-
 // SIMPLIFICACION DE NOMBRES DE INTERFACES
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
@@ -35,10 +30,6 @@ define('BASE_URL', 'http://localhost/desatranques/app/index.php/');
 // NUEVA INSTANCIA DE SLIM
 $app = new \Slim\App(['settings' => $config]);
 
-//
-// RUTAS DE LA APLICACION
-//
-
 // GET PRINCIPAL
 $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write( Tareas::getInstance()->Inicio() );
@@ -48,6 +39,12 @@ $app->get('/', function (Request $request, Response $response, $args) {
 // GET LISTA
 $app->get('/lista', function (Request $request, Response $response, $args) {
     $response->getBody()->write( Tareas::getInstance()->Listar() );
+    return $response;
+});
+
+// GET UNA TAREA
+$app->get('/tarea', function (Request $request, Response $response, $args) {
+    $response->getBody()->write( Tareas::getInstance()->verTarea() );
     return $response;
 });
 
@@ -63,21 +60,21 @@ $app->get('/crear', function (Request $request, Response $response, $args) {
     return $response;
 });
 
-// PUT EDITAR
-$app->put('/edit', function (Request $request, Response $response, $args) {
+// EDITAR
+$app->any('/editar', function (Request $request, Response $response, $args) {
     $response->getBody()->write( Tareas::getInstance()->Edit() );
     return $response;
 });
 
-// GET BORRAR
-$app->get('/del', function (Request $request, Response $response, $args) {
+// BORRAR
+$app->get('/borrar', function (Request $request, Response $response, $args) {
     $response->getBody()->write( Tareas::getInstance()->Del() );
     return $response;
 });
 
-// GET PAGINA 1
-$app->get('/pag1', function (Request $request, Response $response, $args) {
-    $response->getBody()->write( Tareas::getInstance()->Pag1() );
+// CONFIRMAR BORRAR
+$app->any('/confirmar_borrado', function (Request $request, Response $response, $args){
+    $response->getBody()->write (Tareas::getInstance()->confDel());
     return $response;
 });
 

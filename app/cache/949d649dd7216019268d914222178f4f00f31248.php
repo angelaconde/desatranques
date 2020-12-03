@@ -3,141 +3,56 @@
 <?php $__env->startSection('cuerpo'); ?>
 
 <?php
-
-// CONEXION A LA BASE DE DATOS
-include 'models/connection.php';
-$con = DB::getcon();
-
-// LISTA DE PROVINCIAS PARA RELLENAR EL SELECT DEL FORMULARIO
-$sqlProv = 'SELECT * FROM provincias';
-foreach ($con->query($sqlProv) as $provincia) {
-    $listaProvincias[] = $provincia;
-}
-
-// LISTA DE OPERARIOS PARA RELLENAR EL SELECT DEL FORMULARIO
-$sqlOpe = 'SELECT nombre FROM usuarios WHERE tipo = "operario"';
-foreach ($con->query($sqlOpe) as $operario) {
-    $listaOperarios[] = $operario;
-}
-
-if ($_POST) {
-
-    try {
-        // QUERY DE INSERTAR
-        $query = "INSERT INTO tareas SET 
-        contacto=:contacto, 
-        telefono=:telefono, 
-        descripcion=:descripcion, 
-        email=:email,
-        direccion=:direccion,
-        poblacion=:poblacion,
-        cp=:cp,
-        provincia=:provincia,
-        estado=:estado,
-        operario=:operario,
-        fecha_realizacion=:fecha,
-        anotaciones_anteriores=:anteriores,
-        anotaciones_posteriores=:posteriores";
-
-        // PREPARACION DE LA QUERY
-        $stmt = $con->prepare($query);
-
-        // LIMPIEZA DE LOS DATOS DEL FORMULARIO
-        $contacto = htmlspecialchars(strip_tags($_POST['contacto']));
-        $telefono = htmlspecialchars(strip_tags($_POST['telefono']));
-        $descripcion = htmlspecialchars(strip_tags($_POST['descripcion']));
-        $email = htmlspecialchars(strip_tags($_POST['email']));
-        $direccion = htmlspecialchars(strip_tags($_POST['direccion']));
-        $poblacion = htmlspecialchars(strip_tags($_POST['poblacion']));
-        $cp = htmlspecialchars(strip_tags($_POST['cp']));
-        $provincia = htmlspecialchars(strip_tags($_POST['provincia']));
-        $estado = htmlspecialchars(strip_tags($_POST['estado']));
-        $operario = htmlspecialchars(strip_tags($_POST['operario']));
-        $fecha = htmlspecialchars(strip_tags($_POST['fecha']));
-        $anteriores = htmlspecialchars(strip_tags($_POST['anteriores']));
-        $posteriores = htmlspecialchars(strip_tags($_POST['posteriores']));
-
-        // TODO: Filtrado
-        //
-        //
-        //
-        //
-
-        // BINDEADO DE PARAMETROS
-        $stmt->bindParam(':contacto', $contacto);
-        $stmt->bindParam(':telefono', $telefono);
-        $stmt->bindParam(':descripcion', $descripcion);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':direccion', $direccion);
-        $stmt->bindParam(':poblacion', $poblacion);
-        $stmt->bindParam(':cp', $cp);
-        $stmt->bindParam(':provincia', $provincia);
-        $stmt->bindParam(':estado', $estado);
-        $stmt->bindParam(':operario', $operario);
-        $stmt->bindParam(':fecha', $fecha);
-        $stmt->bindParam(':anteriores', $anteriores);
-        $stmt->bindParam(':posteriores', $posteriores);
-
-        // EJECUCION DE LA CONSULTA
-        if ($stmt->execute()) {
-            echo "<div class='alert alert-success'>Tarea añadida.</div>";
-        } else {
-            echo "<div class='alert alert-danger'>Error al añadir tarea.</div>";
-        }
-    }
-
-    // MOSTRAR SI HAY ERROR
-    catch (PDOException $exception) {
-        die('ERROR: ' . $exception->getMessage());
-    }
-}
+include_once 'models/editar.php';
 ?>
 
-
 <div class="container-fluid col-8">
-
-    <div class="page-header">
-        <h1><?php echo e($operacion); ?> tarea</h1>
-    </div>
 
     <!-- FORMULARIO DE AÑADIR TAREA -->
     <form method="post">
         <div class="form-group">
             <label for="contacto" class="col-form-label">Persona de contacto</label>
-            <input id="contacto" name="contacto" type="text" class="form-control">
+            <input id="contacto" name="contacto" type="text" class="form-control" value="<?= valorPost('contacto') ?>">
+            <?= verError('contacto', $errores) ?>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="telefono" class="col-form-label">Teléfono</label>
-                <input id="telefono" name="telefono" type="text" class="form-control">
+                <input id="telefono" name="telefono" type="text" class="form-control" value="<?= valorPost('telefono') ?>">
+                <?= verError('telefono', $errores) ?>
             </div>
             <div class="form-group col-md-6">
                 <label for="email" class="col-form-label">Email</label>
-                <input id="email" name="email" type="text" class="form-control">
+                <input id="email" name="email" type="text" class="form-control" value="<?= valorPost('email') ?>">
+                <?= verError('email', $errores) ?>
             </div>
         </div>
 
         <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripción de la tarea</label>
-            <textarea id="descripcion" name="descripcion" rows="3" class="form-control"></textarea>
+            <textarea id="descripcion" name="descripcion" rows="3" class="form-control"><?= valorPost('descripcion') ?></textarea>
+            <?= verError('descripcion', $errores) ?>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="direccion" class="col-form-label">Dirección</label>
-                <input id="direccion" name="direccion" type="text" class="form-control">
+                <input id="direccion" name="direccion" type="text" class="form-control" value="<?= valorPost('direccion') ?>">
+                <?= verError('direccion', $errores) ?>
             </div>
             <div class="form-group col-md-6">
                 <label for="poblacion" class="col-form-label">Población</label>
-                <input id="poblacion" name="poblacion" type="text" class="form-control">
+                <input id="poblacion" name="poblacion" type="text" class="form-control" value="<?= valorPost('poblacion') ?>">
+                <?= verError('poblacion', $errores) ?>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="cp" class="col-form-label">CP</label>
-                <input id="cp" name="cp" type="text" class="form-control">
+                <input id="cp" name="cp" type="text" class="form-control" value="<?= valorPost('cp') ?>">
+                <?= verError('cp', $errores) ?>
             </div>
             <div class="form-group col-md-6">
                 <label for="provincia" class="col-form-label">Provincia</label>
@@ -145,10 +60,20 @@ if ($_POST) {
                     <option selected disabled>Selecciona una Provincia</option>
                     <?php
                     foreach ($listaProvincias as $provincia) {
-                        echo '<option  value=' . $provincia['cod'] . '>' . $provincia['nombre'] . '</option>';
+                        if (isset($_POST['provincia'])) {
+                            if ($_POST['provincia'] != $provincia['cod']) {
+                                echo '<option  value=' . $provincia['cod'] . '>' . $provincia['nombre'] . '</option>';
+                            }
+                            if ($_POST['provincia'] == $provincia['cod']) {
+                                echo '<option  value=' . $provincia['cod'] . ' selected>' . $provincia['nombre'] . '</option>';
+                            }
+                        } else {
+                            echo '<option  value=' . $provincia['cod'] . '>' . $provincia['nombre'] . '</option>';
+                        }
                     }
                     ?>
                 </select>
+                <?= verError('provincia', $errores) ?>
             </div>
         </div>
 
@@ -173,6 +98,7 @@ if ($_POST) {
                         <label for="estado_2" class="custom-control-label">Cancelada</label>
                     </div>
                 </div>
+                <?= verError('estado', $errores) ?>
             </div>
             <div class="form-group col-md-5">
                 <label for="operario" class="col-form-label">Operario</label>
@@ -184,27 +110,31 @@ if ($_POST) {
                     }
                     ?>
                 </select>
+                <?= verError('operario', $errores) ?>
             </div>
             <div class="form-group col-md-5">
                 <label for="fecha" class="col-form-label">Fecha de realización</label>
-                <input id="fecha" name="fecha" type="text" class="form-control">
+                <input id="fecha" name="fecha" type="text" class="form-control" value="<?= valorPost('fecha') ?>">
+                <?= verError('fecha', $errores) ?>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="anteriores" class="col-form-label">Anotaciones anteriores</label>
-                <textarea id="anteriores" name="anteriores" cols="40" rows="5" class="form-control"></textarea>
+                <textarea id="anteriores" name="anteriores" cols="40" rows="5" class="form-control"><?= valorPost('anteriores') ?></textarea>
+                <?= verError('anteriores', $errores) ?>
             </div>
             <div class="form-group col-md-6">
                 <label for="posteriores" class="col-form-label">Anotaciones posteriores</label>
-                <textarea id="posteriores" name="posteriores" cols="40" rows="5" class="form-control"></textarea>
+                <textarea id="posteriores" name="posteriores" cols="40" rows="5" class="form-control"><?= valorPost('posteriores') ?></textarea>
+                <?= verError('anteriores', $errores) ?>
             </div>
         </div>
         <div class="form-row">
             <div class="col">
                 <input type='submit' value='Guardar tarea' class='btn btn-primary'>
-                <a href='../index.php' class='btn btn-danger'>Cancelar</a>
+                <a href='<?php echo e(BASE_URL); ?>' class='btn btn-danger'>Cancelar</a>
             </div>
         </div>
     </form>
