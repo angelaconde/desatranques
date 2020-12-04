@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // RUTAS DE DIRECTORIOS
 if (!defined('APP_PATH')) {
     define('APP_PATH', __DIR__ . '/');
@@ -13,6 +15,7 @@ if (!defined('APP_PATH')) {
 // INCLUDES
 // include (HELPERS_PATH.'vistas.php');
 include (CTRL_PATH.'tareas.php');
+include (CTRL_PATH.'usuarios.php');
 
 // SIMPLIFICACION DE NOMBRES DE INTERFACES
 use \Psr\Http\Message\ServerRequestInterface as Request;
@@ -29,6 +32,18 @@ define('BASE_URL', 'http://localhost/desatranques/app/index.php/');
 
 // NUEVA INSTANCIA DE SLIM
 $app = new \Slim\App(['settings' => $config]);
+
+// LOGIN
+$app->any('/login', function (Request $request, Response $response, $args) {
+    $response->getBody()->write( Usuario::getInstance()->login() );
+    return $response;
+});
+
+// LOGOUT
+$app->any('/logout', function (Request $request, Response $response, $args) {
+    $response->getBody()->write( Usuario::getInstance()->logout() );
+    return $response;
+});
 
 // GET PRINCIPAL
 $app->get('/', function (Request $request, Response $response, $args) {

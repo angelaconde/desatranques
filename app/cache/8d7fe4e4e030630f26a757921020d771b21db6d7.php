@@ -14,10 +14,10 @@
 
             <div class="btn-group">
                 <a class="nav-link dropdown-toggle text-primary" href="#" id="usuarioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-tie"></i> <span id="usuario">Usuario</span>
+                    <i class="fas fa-user-tie"></i> <span id="usuario"><?php echo e($_SESSION['usuario']); ?></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="usuarioDropdown">
-                    <a id="cerrarSesion" class="dropdown-item" href="#">Cerrar sesión</a>
+                    <a id="cerrarSesion" class="dropdown-item" href="<?php echo e(BASE_URL); ?>logout">Cerrar sesión</a>
                 </div>
             </div>
         </div>

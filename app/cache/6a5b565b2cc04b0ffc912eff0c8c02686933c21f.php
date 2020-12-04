@@ -1,0 +1,1 @@
+No tiene permiso para ver esta sección.<?php /**PATH C:\xampp\htdocs\desatranques\app\views/acceso_negado.blade.php ENDPATH**/ ?>

@@ -32,7 +32,7 @@ class Tareas
      */
     public function Inicio()
     {
-        return $this->blade->render('inicio');
+        return $this->blade->render('inicio', ['usuario' => $_SESSION['usuario']]);
     }
 
 
@@ -113,5 +113,4 @@ class Tareas
         }
     }
 
-    
 }

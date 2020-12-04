@@ -30,7 +30,6 @@
     // NUMERO TOTAL DE RESULTADOS OBTENIDOS
     $num = $stmt->rowCount();
 
-
     // COMPROBACION DE QUE HAYA RESULTADOS
     if ($num > 0) {
     ?>
