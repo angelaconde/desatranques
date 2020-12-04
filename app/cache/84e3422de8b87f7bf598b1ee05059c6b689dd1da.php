@@ -13,6 +13,9 @@
     // PROVINCIAS
     include MODEL_PATH . 'provincias.php';
 
+    // AYUDAS DE FORMATO DE VISTAS
+    include HELPERS_PATH . 'vistas.php';
+
     // HEMOS RECIBIDO LA TAREA DESDE EL CONTROLADOR CON EL NOMBRE $tarea_id
 
     // OBTENER TAREA POR ID
@@ -27,17 +30,7 @@
         // FORMATEAR FECHA A DIA/MES/AÑO
         $fechaFormateada = date("d/m/Y", strtotime($fecha_creacion));
         // FORMATEAR ESTADO
-        switch ($estado) {
-            case 'P':
-                $estado = 'Pendiente';
-                break;
-            case 'R':
-                $estado = 'Realizada';
-                break;
-            case 'C':
-                $estado = 'Cancelada';
-                break;
-        }
+        $estado = formatearEstado($estado);
         ?>
                 <div class="col container text-center p-3">
                     <div>
@@ -58,8 +51,9 @@
                         <p>Anotaciones posteriores: <?php echo e($anotaciones_posteriores); ?></p>
                     </div>
                     <div>
-                        <a href='editar?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-primary'><i class='fas fa-edit'> Editar</i></a>
-                        <a href='borrar?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-danger'><i class='fas fa-trash-alt'> Eliminar</i></a>
+                        <a href='editar?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-primary'><i class='fas fa-edit'></i> Editar</a>
+                        <a href='borrar?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-danger'><i class='fas fa-trash-alt'></i> Eliminar</a>
+                        <button type="button" class='btn btn-secondary' onclick="history.back();"><i class="fas fa-undo-alt"></i> Volver</button>
                     </div>
                 </div>
 

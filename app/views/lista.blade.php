@@ -7,11 +7,14 @@
     <?php
 
     // CONEXION A LA BASE DE DATOS
-    include 'models/connection.php';
+    include MODEL_PATH . 'connection.php';
     $con = DB::getcon();
 
     // PROVINCIAS
-    include 'models/provincias.php';
+    include MODEL_PATH . 'provincias.php';
+
+    // AYUDAS DE FORMATO DE VISTAS
+    include HELPERS_PATH . 'vistas.php';
 
     // PAGINACION
     $pagina = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -59,17 +62,7 @@
                 // FECHA FORMATEADA
                 $fechaFormateada = date("d/m/Y", strtotime($fecha_creacion));
                 // FORMATEAR ESTADO
-                switch ($estado) {
-                    case 'P':
-                        $estado = 'Pendiente';
-                        break;
-                    case 'R':
-                        $estado = 'Realizada';
-                        break;
-                    case 'C':
-                        $estado = 'Cancelada';
-                        break;
-                }
+                $estado = formatearEstado($estado);
                 // FILA EN LA TABLA
             ?>
                 <tr>

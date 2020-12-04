@@ -23,6 +23,18 @@
     while ($tarea = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($tarea);
         $nombreProvincia = provCodANombre($con, $provincia);
+        // FORMATEAR ESTADO
+        switch ($estado) {
+            case 'P':
+                $estado = 'Pendiente';
+                break;
+            case 'R':
+                $estado = 'Realizada';
+                break;
+            case 'C':
+                $estado = 'Cancelada';
+                break;
+        }
         ?>
                 <div class="col container text-center p-3">
                     <div>
@@ -42,7 +54,8 @@
                         <p>Anotaciones posteriores: {{$anotaciones_posteriores}}</p>
                     </div>
                     <div>
-                        <a href='confirmar_borrado?tarea_id={{$tarea_id}}' class='btn btn-danger'><i class='fas fa-trash-alt'> Confirmar borrado</i></a>
+                        <a href='confirmar_borrado?tarea_id={{$tarea_id}}' class='btn btn-danger'><i class='fas fa-trash-alt'></i> Confirmar borrado</a>
+                        <button type="button" class='btn btn-secondary' onclick="history.back();"><i class="fas fa-undo-alt"></i> Cancelar</button>
                     </div>
                 </div>
 

@@ -137,7 +137,7 @@ include_once MODEL_PATH . 'crear.php';
 
         </div>
         <div class="form-row">
-            <div class="col">
+            <div class="col text-center p-3">
                 <input type='submit' value='Guardar tarea' class='btn btn-primary'>
                 <a href='{{BASE_URL}}' class='btn btn-danger'>Cancelar</a>
             </div>
