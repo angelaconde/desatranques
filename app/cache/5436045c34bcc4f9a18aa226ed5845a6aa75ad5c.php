@@ -32,6 +32,7 @@
     // $stmt->execute();
     // // NUMERO TOTAL DE RESULTADOS OBTENIDOS
     // $num = $stmt->rowCount();
+    $totalFilas = getTareasTotal();
     $stmt = getTareasSiguientes($desde, $tareasPorPagina);
     $num = getTareasNumero($stmt);
 
@@ -40,7 +41,7 @@
         // $tarea = getTareas($stmt);
     ?>
         <div class="page-header text-center">
-            <h2>Lista de tareas de la <?php echo e($desde+1); ?> a la <?php echo e($desde+$num); ?></h2>
+            <h3>Lista de tareas de la <?php echo e($desde+1); ?> a la <?php echo e($desde+$num); ?> de un total de <?php echo e($totalFilas); ?></h3>
         </div>
 
         <table class='table table-hover table-bordered'>
@@ -102,9 +103,8 @@
         // $stmt->execute();
         // $row = $stmt->fetch(PDO::FETCH_ASSOC);
         // $totalFilas = $row['total_rows'];
-        $totalFilas = getTareasTotal();
         $paginaUrl = "lista?";
-        include_once "views/paginacion.php";
+        include_once "views/paginacion.blade.php";
     }
 
     // SI NO HAY RESULTADOS

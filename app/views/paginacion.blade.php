@@ -21,7 +21,7 @@
         ?>
 
         <!-- BOTON IR A PRIMERA PAGINA -->
-        <li class='page-item mr3 <?= ($pagina > 1) ? "" : "disabled" ?>'>
+        <li class='page-item mr-3 <?= ($pagina > 1) ? "" : "disabled" ?>'>
             <a class='page-link' href='<?= $paginaUrl ?>page=1'>
                 <span>Primera</span>
             </a>
