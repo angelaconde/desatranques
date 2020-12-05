@@ -3,7 +3,7 @@
 @section('cuerpo')
 
 <?php
-include_once 'models/editar.php';
+include_once MODEL_PATH . 'editar.php';
 ?>
 
 <div class="container-fluid col-8">

@@ -6,7 +6,6 @@ include_once MODEL_PATH . 'login.php';
 
 class Usuario
 {
-    protected $errores = null;
     protected $blade = null;
 
     public function __construct()
@@ -67,7 +66,6 @@ class Usuario
     public function logout(){
         session_unset(); 
         session_destroy();
-        // return $this->login();
         header('Location: login');
         exit;
     }

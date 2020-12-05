@@ -1,7 +1,11 @@
 <?php
 
-function getProvincias($con)
+// CONEXION A LA BASE DE DATOS
+include_once MODEL_PATH . 'connection.php';
+
+function getProvincias()
 {
+    $con = DB::getcon();
     $sql = 'SELECT cod, nombre FROM provincias';
     $stmtProv = $con->prepare($sql);
     $stmtProv->execute();
@@ -9,8 +13,9 @@ function getProvincias($con)
     return $provincias;
 }
 
-function provCodANombre($con, $cod)
+function provCodANombre($cod)
 {
+    $con = DB::getcon();
     $sql = 'SELECT nombre FROM provincias where cod = ?';
     $stmtProv = $con->prepare($sql);
     $stmtProv->execute([$cod]);

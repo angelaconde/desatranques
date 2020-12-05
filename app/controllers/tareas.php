@@ -13,7 +13,7 @@ class Tareas
 
     public function __construct()
     {
-        $this->model = new Tareas_Model();
+        // $this->model = new Tareas_Modelo();
         $this->blade = new Blade(VIEW_PATH, CACHE_PATH);
     }
 
