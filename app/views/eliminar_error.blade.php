@@ -1,7 +1,7 @@
 @extends('_template')
 
 @section('cuerpo')
-<div>
+<div class="alert alert-danger">
     No existe la tarea seleccionada.
 </div>
 @endsection

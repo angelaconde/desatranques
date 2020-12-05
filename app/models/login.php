@@ -3,7 +3,7 @@
 function validarUsuario($usuario, $pass)
 {
     // CONEXION A LA BASE DE DATOS
-    include MODEL_PATH . 'connection.php';
+    include_once MODEL_PATH . 'connection.php';
     $con = DB::getcon();
 
     $usuarioExiste = false;

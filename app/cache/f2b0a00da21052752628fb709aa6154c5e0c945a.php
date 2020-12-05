@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('cuerpo'); ?>
-<div>
+<div class="alert alert-danger">
     No existe la tarea seleccionada.
 </div>
 <?php $__env->stopSection(); ?>

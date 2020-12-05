@@ -89,7 +89,14 @@ class Tareas
         try {
             if (isset($_GET['tarea_id'])) {
                 $tarea_id = $_GET['tarea_id'];
-                return $this->blade->render('tarea', ['tarea_id' => $tarea_id]);
+                $stmt = getTareaByID($tarea_id);
+                $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
+                // SI EXISTE
+                if ($tarea) {
+                    return $this->blade->render('tarea', ['tarea_id' => $tarea_id]);
+                } else {
+                    return $this->blade->render('tarea_error');
+                }
             } else {
                 return $this->blade->render('tarea_error');
             }
@@ -104,7 +111,14 @@ class Tareas
         try {
             if (isset($_GET['tarea_id'])) {
                 $tarea_id = $_GET['tarea_id'];
-                return $this->blade->render('editar', ['tarea_id' => $tarea_id]);
+                $stmt = getTareaByID($tarea_id);
+                $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
+                // SI EXISTE
+                if ($tarea) {
+                    return $this->blade->render('editar', ['tarea_id' => $tarea_id]);
+                } else {
+                    return $this->blade->render('tarea_error');
+                }
             } else {
                 return $this->blade->render('tarea_error');
             }
