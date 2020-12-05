@@ -4,6 +4,7 @@ use Jenssegers\Blade\Blade;
 
 include(HELPERS_PATH . 'validaciones.php');
 include(MODEL_PATH . 'tareas.php');
+// include(CTRL_PATH . 'usuarios.php');
 
 class Tareas
 {
@@ -41,7 +42,12 @@ class Tareas
      */
     public function Listar()
     {
-        return $this->blade->render('lista');
+        if (isset($_SESSION['usuario'])) {
+            return $this->blade->render('lista');
+        } else {
+            header('Location: login');
+            exit;
+        }
     }
 
     /**
@@ -50,80 +56,105 @@ class Tareas
      */
     public function Add()
     {
-        return $this->blade->render('crear');
+        if (isset($_SESSION['usuario'])) {
+            return $this->blade->render('crear');
+        } else {
+            header('Location: login');
+            exit;
+        }
     }
 
     // BORRAR TAREA
     public function Del()
     {
-        try {
-            if (isset($_GET['tarea_id'])) {
-                $tarea_id = $_GET['tarea_id'];
-                return $this->blade->render('eliminar', ['tarea_id' => $tarea_id]);
-            } else {
+        if (isset($_SESSION['usuario'])) {
+            try {
+                if (isset($_GET['tarea_id'])) {
+                    $tarea_id = $_GET['tarea_id'];
+                    return $this->blade->render('eliminar', ['tarea_id' => $tarea_id]);
+                } else {
+                    return $this->blade->render('eliminar_error');
+                }
+            } catch (Exception $ex) {
                 return $this->blade->render('eliminar_error');
             }
-        } catch (Exception $ex) {
-            return $this->blade->render('eliminar_error');
+        } else {
+            header('Location: login');
+            exit;
         }
     }
 
     // CONFIRMAR BORRAR
     public function confDel()
     {
-        try {
-            if (isset($_GET['tarea_id'])) {
-                $tarea_id = $_GET['tarea_id'];
-                return $this->blade->render('confirmar_borrado', ['tarea_id' => $tarea_id]);
-            } else {
+        if (isset($_SESSION['usuario'])) {
+            try {
+                if (isset($_GET['tarea_id'])) {
+                    $tarea_id = $_GET['tarea_id'];
+                    return $this->blade->render('confirmar_borrado', ['tarea_id' => $tarea_id]);
+                } else {
+                    return $this->blade->render('eliminar_error');
+                }
+            } catch (Exception $ex) {
                 return $this->blade->render('eliminar_error');
             }
-        } catch (Exception $ex) {
-            return $this->blade->render('eliminar_error');
+        } else {
+            header('Location: login');
+            exit;
         }
     }
 
     // VER DATOS DE UNA TAREA
     public function verTarea()
     {
-        try {
-            if (isset($_GET['tarea_id'])) {
-                $tarea_id = $_GET['tarea_id'];
-                $stmt = getTareaByID($tarea_id);
-                $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
-                // SI EXISTE
-                if ($tarea) {
-                    return $this->blade->render('tarea', ['tarea_id' => $tarea_id]);
+        if (isset($_SESSION['usuario'])) {
+            try {
+                if (isset($_GET['tarea_id'])) {
+                    $tarea_id = $_GET['tarea_id'];
+                    $stmt = getTareaByID($tarea_id);
+                    $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
+                    // SI EXISTE
+                    if ($tarea) {
+                        return $this->blade->render('tarea', ['tarea_id' => $tarea_id]);
+                    } else {
+                        return $this->blade->render('tarea_error');
+                    }
                 } else {
                     return $this->blade->render('tarea_error');
                 }
-            } else {
+            } catch (Exception $ex) {
                 return $this->blade->render('tarea_error');
             }
-        } catch (Exception $ex) {
-            return $this->blade->render('tarea_error');
+        } else {
+            header('Location: login');
+            exit;
         }
     }
 
     // EDITAR DATOS DE UNA TAREA
     public function editarTarea()
     {
-        try {
-            if (isset($_GET['tarea_id'])) {
-                $tarea_id = $_GET['tarea_id'];
-                $stmt = getTareaByID($tarea_id);
-                $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
-                // SI EXISTE
-                if ($tarea) {
-                    return $this->blade->render('editar', ['tarea_id' => $tarea_id]);
+        if (isset($_SESSION['usuario'])) {
+            try {
+                if (isset($_GET['tarea_id'])) {
+                    $tarea_id = $_GET['tarea_id'];
+                    $stmt = getTareaByID($tarea_id);
+                    $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
+                    // SI EXISTE
+                    if ($tarea) {
+                        return $this->blade->render('editar', ['tarea_id' => $tarea_id]);
+                    } else {
+                        return $this->blade->render('tarea_error');
+                    }
                 } else {
                     return $this->blade->render('tarea_error');
                 }
-            } else {
+            } catch (Exception $ex) {
                 return $this->blade->render('tarea_error');
             }
-        } catch (Exception $ex) {
-            return $this->blade->render('tarea_error');
+        } else {
+            header('Location: login');
+            exit;
         }
     }
 }

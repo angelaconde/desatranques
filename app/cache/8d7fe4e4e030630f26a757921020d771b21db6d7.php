@@ -14,7 +14,14 @@
 
             <div class="btn-group">
                 <a class="nav-link dropdown-toggle text-primary" href="#" id="usuarioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-tie"></i> <span id="usuario"><?php echo e($_SESSION['usuario']); ?></span>
+                    <i class="fas fa-user-tie"></i> 
+                    <span id="usuario">
+                        <?php if(isset($_SESSION['usuario'])): ?>
+                            <?php echo e($_SESSION['usuario']); ?> [<?php echo e($_SESSION['tipo']); ?>] (<?php echo e($_SESSION['fecha']); ?>)
+                            <?php else: ?> 
+                            Invitado
+                        <?php endif; ?> 
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="usuarioDropdown">
                     <a id="cerrarSesion" class="dropdown-item" href="<?php echo e(BASE_URL); ?>logout">Cerrar sesión</a>

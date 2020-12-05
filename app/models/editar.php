@@ -113,7 +113,7 @@ if ($_POST) {
             $stmt->bindParam(':id', $id);
             // EJECUCION DE LA CONSULTA
             if ($stmt->execute()) {
-                echo "<div class='alert alert-success'>Tarea añadida.</div>";
+                echo "<div class='alert alert-success'>Tarea actualizada.</div>";
             } else {
                 echo "<div class='alert alert-danger'>Error al añadir tarea.</div>";
             }

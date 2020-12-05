@@ -14,10 +14,10 @@
     include_once MODEL_PATH . 'tareas.php';
 
     // PROVINCIAS
-    include MODEL_PATH . 'provincias.php';
+    include_once MODEL_PATH . 'provincias.php';
 
     // AYUDAS DE FORMATO DE VISTAS
-    include HELPERS_PATH . 'vistas.php';
+    include_once HELPERS_PATH . 'vistas.php';
 
     // PAGINACION
     $pagina = isset($_GET['page']) ? $_GET['page'] : 1;

@@ -29,10 +29,6 @@ class Usuario
         try {
             $error = '';
             if ($_POST) {
-                // if ($_POST['usuario'] == "pepe" && $_POST['password'] == "1234") {
-                //     $_SESSION['usuario'] = "Pepe";
-                //     $_SESSION['tipo'] = "administrativo";
-                //     return Tareas::getInstance()->Inicio();
                 $usuario = $_POST['usuario'];
                 $pass = $_POST['password'];
                 $error = '';
@@ -40,6 +36,7 @@ class Usuario
                 if ($validacion['estado'] == 'correcto'){
                     $_SESSION['usuario'] = $validacion['usuario'];
                     $_SESSION['tipo'] = $validacion['tipo'];
+                    $_SESSION['fecha'] = date('Y-m-d H:i:s');
                     return Tareas::getInstance()->Inicio();
                 } else if ($validacion['estado'] == 'formulario_incompleto'){
                     $error = 'Debe introducir usuario y contraseña.';
