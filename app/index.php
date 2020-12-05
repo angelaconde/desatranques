@@ -77,7 +77,7 @@ $app->get('/crear', function (Request $request, Response $response, $args) {
 
 // EDITAR
 $app->any('/editar', function (Request $request, Response $response, $args) {
-    $response->getBody()->write( Tareas::getInstance()->Edit() );
+    $response->getBody()->write( Tareas::getInstance()->editarTarea() );
     return $response;
 });
 

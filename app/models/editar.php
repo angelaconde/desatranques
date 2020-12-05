@@ -20,18 +20,12 @@ foreach ($con->query($sqlOpe) as $operario) {
 $errores = [];
 $correcto = true;
 
-// if (isset($_GET['tarea_id'])) {
-//     $id = $_GET['tarea_id'];
-//     $this->model->Del($id);
-//     return $this->Listar();
-// } else {
-//     return $this->blade->render('editar');
-// }
+$id = $_GET['tarea_id'];
 
 if ($_POST) {
     try {
-        // QUERY DE INSERTAR
-        $query = "INSERT INTO tareas SET 
+        // QUERY DE ACTUALIZAR
+        $query = "UPDATE tareas SET 
         contacto=:contacto, 
         telefono=:telefono, 
         descripcion=:descripcion, 
@@ -44,7 +38,8 @@ if ($_POST) {
         operario=:operario,
         fecha_realizacion=:fecha,
         anotaciones_anteriores=:anteriores,
-        anotaciones_posteriores=:posteriores";
+        anotaciones_posteriores=:posteriores
+        WHERE tarea_id=:id";
 
         // PREPARACION DE LA QUERY
         $stmt = $con->prepare($query);
@@ -115,6 +110,7 @@ if ($_POST) {
             $stmt->bindParam(':fecha', $fecha);
             $stmt->bindParam(':anteriores', $anteriores);
             $stmt->bindParam(':posteriores', $posteriores);
+            $stmt->bindParam(':id', $id);
             // EJECUCION DE LA CONSULTA
             if ($stmt->execute()) {
                 echo "<div class='alert alert-success'>Tarea añadida.</div>";

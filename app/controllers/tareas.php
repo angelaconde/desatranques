@@ -45,21 +45,6 @@ class Tareas
     }
 
     /**
-     * Permite modificar una tarea seleccionada
-     *
-     * @return void
-     */
-    public function Edit()
-    {
-        if (!isset($_GET['tarea_id'])) {
-            return $this->blade->render('editar_error');
-        } else {
-            $id = $_GET['tarea_id'];
-            return $this->blade->render('editar');
-        }
-    }
-
-    /**
      * Añade una nueva tarea
      * @return type
      */
@@ -113,4 +98,18 @@ class Tareas
         }
     }
 
+    // EDITAR DATOS DE UNA TAREA
+    public function editarTarea()
+    {
+        try {
+            if (isset($_GET['tarea_id'])) {
+                $tarea_id = $_GET['tarea_id'];
+                return $this->blade->render('editar', ['tarea_id' => $tarea_id]);
+            } else {
+                return $this->blade->render('tarea_error');
+            }
+        } catch (Exception $ex) {
+            return $this->blade->render('tarea_error');
+        }
+    }
 }

@@ -7,8 +7,8 @@
     <?php
 
     // CONEXION A LA BASE DE DATOS
-    include MODEL_PATH . 'connection.php';
-    $con = DB::getcon();
+    // include MODEL_PATH . 'connection.php';
+    // $con = DB::getcon();
 
     // PROVINCIAS
     include MODEL_PATH . 'provincias.php';
@@ -16,13 +16,11 @@
     // HEMOS RECIBIDO LA TAREA DESDE EL CONTROLADOR CON EL NOMBRE $tarea_id
 
     // OBTENER TAREA POR ID
-    $query = "SELECT * FROM tareas WHERE tarea_id = " . $tarea_id;
-    $stmt = $con->prepare($query);
-    $stmt->execute(); 
+    $stmt = getTareaByID($tarea_id);
 
     while ($tarea = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($tarea);
-        $nombreProvincia = provCodANombre($con, $provincia);
+        $nombreProvincia = provCodANombre($provincia);
         // FORMATEAR ESTADO
         switch ($estado) {
             case 'P':

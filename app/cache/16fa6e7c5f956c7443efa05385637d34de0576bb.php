@@ -139,7 +139,7 @@ include_once MODEL_PATH . 'crear.php';
         <div class="form-row">
             <div class="col text-center p-3">
                 <input type='submit' value='Guardar tarea' class='btn btn-primary'>
-                <a href='<?php echo e(BASE_URL); ?>' class='btn btn-danger'>Cancelar</a>
+                <a href='<?php echo e(BASE_URL); ?>lista' class='btn btn-danger'>Cancelar</a>
             </div>
         </div>
     </form>
