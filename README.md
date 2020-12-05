@@ -15,6 +15,11 @@ Mejorada:
   - Fecha de inicio de sesión
   - Enlace para finalizar sesión
 
+Instalador:
+- Creación de la base de datos
+- Creación de las tablas
+- Insertado de contenido
+
 Adenda:
 - Control de versiones (https://github.com/angelaconde/desatranques/commits/master)
 
@@ -50,13 +55,6 @@ Completar una tarea incluyendo anotaciones si se precisan (ope.)
 •	Editar un usuario: cambiar usuario o clave.
 •	Listar usuarios existentes. [solo Adm.]
 
-- Instalador de la aplicación:
-El instalador estará situado en la carpeta "install", y arrancará automaticamente "index.php". 
-Cogerá los datos de configuración del fichero "app/config.php" y procederá a la creación e inicialización de la base de datos.
-El instalador borrará todas las tablas que existan en la base de datos y luego creará la estructura de 
-las tablas con las que trabajará. Para ello puede que preciséis obtener la lista de tablas existentes 
-en la base de datos y luego ir borrando cada una.
-
 - Documentación de la aplicación:
 Deberéis generar la documentación de la aplicación realizada incluyendo los comentarios pertinentes y 
 luego generando los documentos de forma automatizada.
@@ -64,10 +62,3 @@ luego generando los documentos de forma automatizada.
 •	DoxyGen.
 Estos utilizan una seríe de etiquetas, las cuales podréis consultar aquí 
 (http://www.phpdoc.org/docs/latest/for-users/list-of-tags.html).
-
-
-
-
-
-
-
