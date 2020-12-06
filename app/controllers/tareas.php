@@ -62,7 +62,11 @@ class Tareas
     public function Add()
     {
         if (isset($_SESSION['usuario'])) {
-            return $this->blade->render('crear');
+            if ($_SESSION['tipo'] != 'administrativo') {
+                return $this->blade->render('acceso_negado');
+            } else {
+                return $this->blade->render('crear');
+            }
         } else {
             header('Location: login');
             exit;
@@ -77,15 +81,19 @@ class Tareas
     public function Del()
     {
         if (isset($_SESSION['usuario'])) {
-            try {
-                if (isset($_GET['tarea_id'])) {
-                    $tarea_id = $_GET['tarea_id'];
-                    return $this->blade->render('eliminar', ['tarea_id' => $tarea_id]);
-                } else {
+            if ($_SESSION['tipo'] != 'administrativo') {
+                return $this->blade->render('acceso_negado');
+            } else {
+                try {
+                    if (isset($_GET['tarea_id'])) {
+                        $tarea_id = $_GET['tarea_id'];
+                        return $this->blade->render('eliminar', ['tarea_id' => $tarea_id]);
+                    } else {
+                        return $this->blade->render('eliminar_error');
+                    }
+                } catch (Exception $ex) {
                     return $this->blade->render('eliminar_error');
                 }
-            } catch (Exception $ex) {
-                return $this->blade->render('eliminar_error');
             }
         } else {
             header('Location: login');
@@ -101,15 +109,19 @@ class Tareas
     public function confDel()
     {
         if (isset($_SESSION['usuario'])) {
-            try {
-                if (isset($_GET['tarea_id'])) {
-                    $tarea_id = $_GET['tarea_id'];
-                    return $this->blade->render('confirmar_borrado', ['tarea_id' => $tarea_id]);
-                } else {
+            if ($_SESSION['tipo'] != 'administrativo') {
+                return $this->blade->render('acceso_negado');
+            } else {
+                try {
+                    if (isset($_GET['tarea_id'])) {
+                        $tarea_id = $_GET['tarea_id'];
+                        return $this->blade->render('confirmar_borrado', ['tarea_id' => $tarea_id]);
+                    } else {
+                        return $this->blade->render('eliminar_error');
+                    }
+                } catch (Exception $ex) {
                     return $this->blade->render('eliminar_error');
                 }
-            } catch (Exception $ex) {
-                return $this->blade->render('eliminar_error');
             }
         } else {
             header('Location: login');
@@ -156,21 +168,25 @@ class Tareas
     public function editarTarea()
     {
         if (isset($_SESSION['usuario'])) {
-            try {
-                if (isset($_GET['tarea_id'])) {
-                    $tarea_id = $_GET['tarea_id'];
-                    $stmt = getTareaByID($tarea_id);
-                    $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
-                    if ($tarea) {
-                        return $this->blade->render('editar', ['tarea_id' => $tarea_id]);
+            if ($_SESSION['tipo'] != 'administrativo') {
+                return $this->blade->render('acceso_negado');
+            } else {
+                try {
+                    if (isset($_GET['tarea_id'])) {
+                        $tarea_id = $_GET['tarea_id'];
+                        $stmt = getTareaByID($tarea_id);
+                        $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
+                        if ($tarea) {
+                            return $this->blade->render('editar', ['tarea_id' => $tarea_id]);
+                        } else {
+                            return $this->blade->render('tarea_error');
+                        }
                     } else {
                         return $this->blade->render('tarea_error');
                     }
-                } else {
+                } catch (Exception $ex) {
                     return $this->blade->render('tarea_error');
                 }
-            } catch (Exception $ex) {
-                return $this->blade->render('tarea_error');
             }
         } else {
             header('Location: login');
@@ -207,5 +223,4 @@ class Tareas
             exit;
         }
     }
-
 }
