@@ -1,6 +1,6 @@
 # PRACTICA SERVIDOR 2ºDAW
 
-![Preview](https://github.com/angelaconde/desatranques/blob/master/doc/preview01.png)
+![Preview](https://github.com/angelaconde/desatranques/blob/master/doc/preview.png)
 
 ## HECHO:
 Básica:
