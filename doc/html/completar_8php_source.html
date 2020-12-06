@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Desatranques Jaen: Fichero Fuente C:/xampp/htdocs/desatranques/app/models/completar.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.jpg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Desatranques Jaen
+   </div>
+   <div id="projectbrief">Proyecto en PHP para DWES de 2º DAW</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.20 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('completar_8php_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">completar.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="completar_8php.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;include_once MODEL_PATH . <span class="stringliteral">&#39;connection.php&#39;</span>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="completar_8php.html#a0debe10448ec56a57b5509648408a549">    5</a></span>&#160;<a class="code" href="completar_8php.html#a0debe10448ec56a57b5509648408a549">$con</a> = <a class="code" href="class_d_b.html#a2341c1d31868b468c39bc555555234a8">DB::getcon</a>();</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="completar_8php.html#ae97941710d863131c700f069b109991e">    7</a></span>&#160;<a class="code" href="completar_8php.html#ae97941710d863131c700f069b109991e">$id</a> = $_GET[<span class="stringliteral">&#39;tarea_id&#39;</span>];</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordflow">if</span> ($_POST) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="comment">// QUERY DE ACTUALIZAR</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        $query = <span class="stringliteral">&quot;UPDATE tareas SET </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="stringliteral">        estado=:estado,</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="stringliteral">        anotaciones_posteriores=:posteriores</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="stringliteral">        WHERE tarea_id=:id&quot;</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="comment">// PREPARACION DE LA QUERY</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="completar_8blade_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a> = <a class="code" href="completar_8php.html#a0debe10448ec56a57b5509648408a549">$con</a>-&gt;prepare($query);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">// LIMPIEZA DE LOS DATOS DEL FORMULARIO</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span> (isset($_POST[<span class="stringliteral">&#39;estado&#39;</span>])) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <a class="code" href="completar_8blade_8php.html#add65399d2cbedf45a9f2299cf9555539">$estado</a> = htmlspecialchars(strip_tags($_POST[<span class="stringliteral">&#39;estado&#39;</span>]));</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        $posteriores = htmlspecialchars(strip_tags($_POST[<span class="stringliteral">&#39;posteriores&#39;</span>]));</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">// BINDEADO DE PARAMETROS</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="completar_8blade_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(<span class="stringliteral">&#39;:estado&#39;</span>, <a class="code" href="completar_8blade_8php.html#add65399d2cbedf45a9f2299cf9555539">$estado</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="completar_8blade_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(<span class="stringliteral">&#39;:posteriores&#39;</span>, $posteriores);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="completar_8blade_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(<span class="stringliteral">&#39;:id&#39;</span>, <a class="code" href="completar_8php.html#ae97941710d863131c700f069b109991e">$id</a>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">// EJECUCION DE LA CONSULTA</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="completar_8blade_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;execute()) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            echo <span class="stringliteral">&quot;&lt;div class=&#39;alert alert-success&#39;&gt;Tarea actualizada.&lt;/div&gt;&quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            echo <span class="stringliteral">&quot;&lt;div class=&#39;alert alert-danger&#39;&gt;Error al actualizar tarea.&lt;/div&gt;&quot;</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// MOSTRAR SI HAY ERROR</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">catch</span> (PDOException $exception) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        die(<span class="stringliteral">&#39;ERROR: &#39;</span> . $exception-&gt;getMessage());</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="acompletar_8php_html_a0debe10448ec56a57b5509648408a549"><div class="ttname"><a href="completar_8php.html#a0debe10448ec56a57b5509648408a549">$con</a></div><div class="ttdeci">$con</div><div class="ttdef"><b>Definition:</b> <a href="completar_8php_source.html#l00005">completar.php:5</a></div></div>
+<div class="ttc" id="acompletar_8blade_8php_html_add65399d2cbedf45a9f2299cf9555539"><div class="ttname"><a href="completar_8blade_8php.html#add65399d2cbedf45a9f2299cf9555539">$estado</a></div><div class="ttdeci">$estado</div><div class="ttdef"><b>Definition:</b> <a href="completar_8blade_8php_source.html#l00016">completar.blade.php:16</a></div></div>
+<div class="ttc" id="acompletar_8php_html_ae97941710d863131c700f069b109991e"><div class="ttname"><a href="completar_8php.html#ae97941710d863131c700f069b109991e">$id</a></div><div class="ttdeci">$id</div><div class="ttdef"><b>Definition:</b> <a href="completar_8php_source.html#l00007">completar.php:7</a></div></div>
+<div class="ttc" id="acompletar_8blade_8php_html_af27a9140d5f2658693e7fd107f716449"><div class="ttname"><a href="completar_8blade_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a></div><div class="ttdeci">$stmt</div><div class="ttdef"><b>Definition:</b> <a href="completar_8blade_8php_source.html#l00010">completar.blade.php:10</a></div></div>
+<div class="ttc" id="aclass_d_b_html_a2341c1d31868b468c39bc555555234a8"><div class="ttname"><a href="class_d_b.html#a2341c1d31868b468c39bc555555234a8">DB\getcon</a></div><div class="ttdeci">static getcon()</div><div class="ttdef"><b>Definition:</b> <a href="connection_8php_source.html#l00021">connection.php:21</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_516e7709f2195dc55b84d083c8c936b3.html">xampp</a></li><li class="navelem"><a class="el" href="dir_10a6f60a3f69272b5db7ea1b7bf5dbe7.html">htdocs</a></li><li class="navelem"><a class="el" href="dir_94d0919b4b473f5a47e985a982c549a7.html">desatranques</a></li><li class="navelem"><a class="el" href="dir_222765241c23805bcf04336e73a7f2d2.html">app</a></li><li class="navelem"><a class="el" href="dir_d66b31eeb73176450a9d7a90e05a589a.html">models</a></li><li class="navelem"><a class="el" href="completar_8php.html">completar.php</a></li>
+    <li class="footer">Generado por <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
+</body>
+</html>
