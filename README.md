@@ -7,6 +7,7 @@ Básica:
 - Añadir tarea
 	- Filtrado
 - Modificar tarea
+- Completar tarea
 - Eliminar tarea
 
 Mejorada:
@@ -25,15 +26,6 @@ Adenda:
 
 
 ## POR HACER:
-
-- Completar tarea:
-Esta operación me permitirá cambiar el estado de una tarea y realizar las anotaciones oportunas sobre la misma. 
-Para esta operación tan solo se mostrarán los datos de la tarea y se solicitará que se marque la tarea como 
-completada, cancelada, realianso las anotaciones que se consideren oportunas. No se deberá poder modificar ningún 
-campo, salvo las anotaciones y el estado.
-El estado se seleccionará preferiblemente con botones de rádio, marcando por defecto la opción completada.
-Esta acción en un futuro será realizada por los operarios, la pantalla debe ser diferente de la que se utilice en 
-la modificación pues solo se deberán permitir cambiar los campos fecha de realización, estado de la tarea y anotaciones posteriores.
 
 - Buscar o filtrar tareas:
 Con esta operación permitiremos que el usuario pueda buscar o filtrar la lista de pedidos atendiendo al valor 

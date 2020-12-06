@@ -77,6 +77,12 @@ $app->any('/editar', function (Request $request, Response $response, $args) {
     return $response;
 });
 
+// COMPLETAR
+$app->any('/completar', function (Request $request, Response $response, $args) {
+    $response->getBody()->write( Tareas::getInstance()->completarTarea() );
+    return $response;
+});
+
 // BORRAR
 $app->get('/borrar', function (Request $request, Response $response, $args) {
     $response->getBody()->write( Tareas::getInstance()->Del() );

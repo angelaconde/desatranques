@@ -177,4 +177,35 @@ class Tareas
             exit;
         }
     }
+
+    /**
+     * Muestra completar tarea
+     * 
+     * @return void
+     */
+    public function completarTarea()
+    {
+        if (isset($_SESSION['usuario'])) {
+            try {
+                if (isset($_GET['tarea_id'])) {
+                    $tarea_id = $_GET['tarea_id'];
+                    $stmt = getTareaByID($tarea_id);
+                    $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if ($tarea) {
+                        return $this->blade->render('completar', ['tarea_id' => $tarea_id]);
+                    } else {
+                        return $this->blade->render('tarea_error');
+                    }
+                } else {
+                    return $this->blade->render('tarea_error');
+                }
+            } catch (Exception $ex) {
+                return $this->blade->render('tarea_error');
+            }
+        } else {
+            header('Location: login');
+            exit;
+        }
+    }
+
 }

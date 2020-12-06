@@ -1,28 +1,18 @@
 <?php
 
-include_once(MODEL_PATH . 'connection.php');
-include_once(HELPERS_PATH . 'validaciones.php');
+include_once MODEL_PATH . 'connection.php';
+include_once HELPERS_PATH . 'validaciones.php';
+
 $con = DB::getcon();
 
-// LISTA DE PROVINCIAS PARA RELLENAR EL SELECT DEL FORMULARIO
-$sqlProv = 'SELECT * FROM provincias';
-foreach ($con->query($sqlProv) as $provincia) {
-    $listaProvincias[] = $provincia;
-}
-
-// LISTA DE OPERARIOS PARA RELLENAR EL SELECT DEL FORMULARIO
-$sqlOpe = 'SELECT nombre FROM usuarios WHERE tipo = "operario"';
-foreach ($con->query($sqlOpe) as $operario) {
-    $listaOperarios[] = $operario;
-}
+$id = $_GET['tarea_id'];
 
 $errores = [];
 $correcto = true;
 
-$id = $_GET['tarea_id'];
-
 if ($_POST) {
     try {
+
         // QUERY DE ACTUALIZAR
         $query = "UPDATE tareas SET 
         contacto=:contacto, 

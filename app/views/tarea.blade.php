@@ -36,8 +36,10 @@
                         <p>Anotaciones posteriores: {{$anotaciones_posteriores}}</p>
                     </div>
                     <div>
-                        <a href='editar?tarea_id={{$tarea_id}}' class='btn btn-primary'><i class='fas fa-edit'></i> Editar</a>
+                        <a href='completar?tarea_id={{$tarea_id}}' class='btn btn-success'><i class="fas fa-check-square"></i> Completar</a>
+                        <a href='editar?tarea_id={{$tarea_id}}' class='btn btn-primary'><i class='fas fa-pen-square'></i> Editar</a>
                         <a href='borrar?tarea_id={{$tarea_id}}' class='btn btn-danger'><i class='fas fa-trash-alt'></i> Eliminar</a>
+
                         <button type="button" class='btn btn-secondary' onclick="history.back();"><i class="fas fa-undo-alt"></i> Volver</button>
                     </div>
                 </div>

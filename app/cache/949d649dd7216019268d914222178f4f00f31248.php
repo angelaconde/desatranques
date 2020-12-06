@@ -1,14 +1,18 @@
+
+
+<?php $__env->startSection('cuerpo'); ?>
+
 <?php
 include_once MODEL_PATH . 'editar.php';
 include MODEL_PATH . 'provincias.php';
+include_once MODEL_PATH . 'operarios.php';
+
+$listaProvincias = getProvincias();
+$listaOperarios = getOperarios();
 
 $stmt = getTareaByID($tarea_id);
 $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
-
-
-
-<?php $__env->startSection('cuerpo'); ?>
 
 <div class="container-fluid col-8">
     <form method="post">
@@ -125,7 +129,7 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="form-group col-md-6">
                 <label for="posteriores" class="col-form-label">Anotaciones posteriores</label>
                 <textarea id="posteriores" name="posteriores" cols="40" rows="5" class="form-control"><?= $tarea['anotaciones_posteriores'] ?></textarea>
-                <?= verError('anteriores', $errores) ?>
+                <?= verError('posteriores', $errores) ?>
             </div>
         </div>
         <div class="form-row">

@@ -61,8 +61,9 @@
                 <td><?php echo e($operario); ?></td>
                 <td><?php echo e($fecha_realizacion); ?></td>
                 <td>
-                    <a href='tarea?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-info'><i class='fas fa-file-alt'></i></a>
-                    <a href='editar?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-primary'><i class='fas fa-edit'></i></a>
+                    <a href='tarea?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-primary'><i class='fas fa-file-alt'></i></a>
+                    <a href='completar?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-success'><i class="fas fa-check-square"></i></a>
+                    <a href='editar?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-info'><i class="fas fa-pen-square"></i></a>
                     <a href='borrar?tarea_id=<?php echo e($tarea_id); ?>' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a>
                 </td>
             </tr>
