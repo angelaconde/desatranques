@@ -1,5 +1,7 @@
 # PRACTICA SERVIDOR 2ºDAW
 
+![Preview](https://github.com/angelaconde/desatranques/blob/master/doc/preview01.png)
+
 ## HECHO:
 Básica:
 - Ver la lista de tareas
@@ -29,7 +31,7 @@ Adenda:
 
 ## POR HACER:
 - Operaciones con usuarios:
-  •	Añadir un usuario. [solo Adm.]
-  •	Eliminar un usuario. [solo Adm.]
-  •	Editar un usuario: cambiar usuario o clave.
-  •	Listar usuarios existentes. [solo Adm.]
+  -	Añadir un usuario. [solo Adm.]
+  -	Eliminar un usuario. [solo Adm.]
+  -	Editar un usuario: cambiar usuario o clave.
+  -	Listar usuarios existentes. [solo Adm.]
