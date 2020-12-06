@@ -7,8 +7,9 @@ Básica:
 - Añadir tarea
 	- Filtrado
 - Modificar tarea
-- Completar tarea
 - Eliminar tarea
+- Completar tarea
+- Buscar o filtrar tareas
 
 Mejorada:
 - Diseño modular con Blade
@@ -23,19 +24,12 @@ Instalador:
 - Insertado de contenido
 
 Adenda:
-- Control de versiones (https://github.com/angelaconde/desatranques/commits/master)
 - Documentación de la aplicación
-
+- Control de versiones (https://github.com/angelaconde/desatranques)
 
 ## POR HACER:
-
-- Buscar o filtrar tareas:
-Con esta operación permitiremos que el usuario pueda buscar o filtrar la lista de pedidos atendiendo al valor 
-de diferentes campos. Se deberán soportar al menos 3 campos, y se debe considerar que la busqueda podrá incluir 
-criterios de comparación como igual, contiene, mayor, menor, etc. en los campos que proceda.
-
 - Operaciones con usuarios:
-•	Añadir un usuario. [solo Adm.]
-•	Eliminar un usuario. [solo Adm.]
-•	Editar un usuario: cambiar usuario o clave.
-•	Listar usuarios existentes. [solo Adm.]
+  •	Añadir un usuario. [solo Adm.]
+  •	Eliminar un usuario. [solo Adm.]
+  •	Editar un usuario: cambiar usuario o clave.
+  •	Listar usuarios existentes. [solo Adm.]

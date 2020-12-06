@@ -223,4 +223,36 @@ class Tareas
             exit;
         }
     }
+
+    /**
+     * Muestra buscar tarea
+     * 
+     * @return void
+     */
+    public function buscarTarea()
+    {
+        if (isset($_SESSION['usuario'])) {
+            try {
+                if (isset($_GET['estado']) && isset($_GET['operario']) && isset($_GET['cp'])) {
+                    $estado = $_GET['estado'];
+                    $operario = $_GET['operario'];
+                    $cp = ($_GET['cp'] == '') ? '%' : $_GET['cp'];
+                    $stmt = buscarTareas($estado, $operario, $cp);
+                    $num = getTareasNumero($stmt);
+                    if ($num > 0) {
+                        return $this->blade->render('busqueda_resultado', ['resultado' => $stmt]);
+                    } else {
+                        return $this->blade->render('busqueda_error');
+                    }
+                } else {
+                    return $this->blade->render('buscar');
+                }
+            } catch (Exception $ex) {
+                return $this->blade->render('busqueda_error');
+            }
+        } else {
+            header('Location: login');
+            exit;
+        }
+    }
 }

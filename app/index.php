@@ -95,5 +95,11 @@ $app->any('/confirmar_borrado', function (Request $request, Response $response, 
     return $response;
 });
 
+// BUSCAR
+$app->any('/buscar', function (Request $request, Response $response, $args){
+    $response->getBody()->write (Tareas::getInstance()->buscarTarea());
+    return $response;
+});
+
 // ARRANCAR
 $app->run();

@@ -10,6 +10,7 @@
                 <li class="nav-item"><a class="nav-link" href="<?php echo e(BASE_URL); ?>">INICIO</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>lista">LISTADO</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>crear">AÑADIR</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>buscar">BUSCAR</a></li>
             </ul>
 
             <div class="btn-group">

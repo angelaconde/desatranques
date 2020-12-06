@@ -78,9 +78,22 @@ function getTareaByID($tarea_id)
 function borrarTarea($tarea_id)
 {
     $con = DB::getcon();
-    // $tarea_id = $_GET['tarea_id'];
     $consulta = "DELETE FROM tareas WHERE tarea_id = :tarea_id";
     $sql = $con->prepare($consulta);
     $sql->bindParam(':tarea_id', $tarea_id, PDO::PARAM_INT);
     $sql->execute();
+}
+
+/**
+ * Busca una tarea por varios parámetros
+ * 
+ * @return mixed
+ */
+function buscarTareas($estado, $operario, $cp)
+{
+    $con = DB::getcon();
+    $query = "SELECT * FROM tareas WHERE estado LIKE '$estado' AND operario LIKE '$operario' AND cp LIKE '$cp'";
+    $stmt = $con->prepare($query);
+    $stmt->execute();
+    return $stmt;
 }
