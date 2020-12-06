@@ -129,8 +129,8 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
         </div>
         <div class="form-row">
-            <div class="col">
-                <input type='submit' value='Guardar tarea' class='btn btn-primary'>
+            <div class="col text-center p-3">
+                <input type='submit' value='Actualizar tarea' class='btn btn-primary'>
                 <a href='<?php echo e(BASE_URL); ?>lista' class='btn btn-danger'>Cancelar</a>
             </div>
         </div>
