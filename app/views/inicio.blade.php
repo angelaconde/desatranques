@@ -1,6 +1,7 @@
 @extends('_template')
 
 @section('cuerpo')
+
 <div class="col container fondo text-center p-3" style="height: 600px">
     <div class="card col-5 border-0 shadow mx-auto mt-5">
         <div class="card-body p-5">

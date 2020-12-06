@@ -1,18 +1,27 @@
 <?php
 
-// CONEXION A LA BASE DE DATOS
 include_once MODEL_PATH . 'connection.php';
 
+/**
+ * Función para obtener la lista de provincias de la base de datos
+ * 
+ * @return array
+ */
 function getProvincias()
 {
     $con = DB::getcon();
-    $sql = 'SELECT cod, nombre FROM provincias';
-    $stmtProv = $con->prepare($sql);
-    $stmtProv->execute();
-    $provincias[] = $stmtProv->fetch(PDO::FETCH_ASSOC);
-    return $provincias;
+    $sql = 'SELECT * FROM provincias';
+    foreach ($con->query($sql) as $provincia) {
+        $listaProvincias[] = $provincia;
+    }
+    return $listaProvincias;
 }
 
+/** 
+ * Función para convertir el código de provincia a nombre
+ * 
+ * @return string
+ */
 function provCodANombre($cod)
 {
     $con = DB::getcon();

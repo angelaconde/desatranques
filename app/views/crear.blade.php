@@ -4,6 +4,11 @@
 
 <?php
 include_once MODEL_PATH . 'crear.php';
+include_once MODEL_PATH . 'provincias.php';
+include_once MODEL_PATH . 'operarios.php';
+
+$listaProvincias = getProvincias();
+$listaOperarios = getOperarios();
 ?>
 
 <div class="container-fluid col-8">

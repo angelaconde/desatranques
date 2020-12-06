@@ -4,24 +4,25 @@ use Jenssegers\Blade\Blade;
 
 include(HELPERS_PATH . 'validaciones.php');
 include(MODEL_PATH . 'tareas.php');
-// include(CTRL_PATH . 'usuarios.php');
 
 class Tareas
 {
-    protected $model = null;
-    protected $errores = null;
     protected $blade = null;
 
+    /**
+     * Constructor de la clase Tareas
+     * 
+     * @return Blade
+     */
     public function __construct()
     {
-        // $this->model = new Tareas_Modelo();
         $this->blade = new Blade(VIEW_PATH, CACHE_PATH);
     }
 
     /**
-     * Devuelve un objeto de tipo Tareas
+     * Devuelve una instancia de la clase Tareas
      *
-     * @return void
+     * @return Tareas
      */
     public static function getInstance()
     {
@@ -29,16 +30,19 @@ class Tareas
     }
 
     /**
-     * Muestra la página de Inicio
+     * Muestra la página de inicio
+     * 
+     * @return void
      */
     public function Inicio()
     {
         return $this->blade->render('inicio', ['usuario' => $_SESSION['usuario']]);
     }
 
-
     /**
      * Muestra la lista de tareas
+     * 
+     * @return void
      */
     public function Listar()
     {
@@ -51,8 +55,9 @@ class Tareas
     }
 
     /**
-     * Añade una nueva tarea
-     * @return type
+     * Muestra añadir tarea
+     * 
+     * @return void
      */
     public function Add()
     {
@@ -64,7 +69,11 @@ class Tareas
         }
     }
 
-    // BORRAR TAREA
+    /**
+     * Muestra borrar tarea
+     * 
+     * @return void
+     */
     public function Del()
     {
         if (isset($_SESSION['usuario'])) {
@@ -84,7 +93,11 @@ class Tareas
         }
     }
 
-    // CONFIRMAR BORRAR
+    /**
+     * Muestra confirmar borrado de tarea
+     * 
+     * @return void
+     */
     public function confDel()
     {
         if (isset($_SESSION['usuario'])) {
@@ -104,7 +117,11 @@ class Tareas
         }
     }
 
-    // VER DATOS DE UNA TAREA
+    /**
+     * Muestra tarea
+     * 
+     * @return void
+     */
     public function verTarea()
     {
         if (isset($_SESSION['usuario'])) {
@@ -131,7 +148,11 @@ class Tareas
         }
     }
 
-    // EDITAR DATOS DE UNA TAREA
+    /**
+     * Muestra editar tarea
+     * 
+     * @return void
+     */
     public function editarTarea()
     {
         if (isset($_SESSION['usuario'])) {
@@ -140,7 +161,6 @@ class Tareas
                     $tarea_id = $_GET['tarea_id'];
                     $stmt = getTareaByID($tarea_id);
                     $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
-                    // SI EXISTE
                     if ($tarea) {
                         return $this->blade->render('editar', ['tarea_id' => $tarea_id]);
                     } else {

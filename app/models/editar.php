@@ -1,6 +1,5 @@
 <?php
 
-// CONEXION A LA BASE DE DATOS
 include_once(MODEL_PATH . 'connection.php');
 include_once(HELPERS_PATH . 'validaciones.php');
 $con = DB::getcon();
@@ -93,9 +92,7 @@ if ($_POST) {
             $errores['fecha'] = 'Compruebe que la fecha sea correcta.';
             $correcto = FALSE;
         }
-        if (!$correcto) {
-            // @include 'editar';
-        } else {
+        if ($correcto) {
             // BINDEADO DE PARAMETROS
             $stmt->bindParam(':contacto', $contacto);
             $stmt->bindParam(':telefono', $telefono);

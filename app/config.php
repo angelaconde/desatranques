@@ -1,5 +1,6 @@
 <?php
 
+// CONFIGURACION DE CONEXION A LA BASE DE DATOS
 $db_info = [
     "db_host" => "localhost",
     "db_user" => "root",

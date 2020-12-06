@@ -8,6 +8,11 @@ class Usuario
 {
     protected $blade = null;
 
+    /**
+     * Constructor de la clase Usuario
+     * 
+     * @return Blade
+     */
     public function __construct()
     {
         $this->blade = new Blade(VIEW_PATH, CACHE_PATH);
@@ -16,14 +21,18 @@ class Usuario
     /**
      * Devuelve un objeto de tipo Usuario
      *
-     * @return void
+     * @return Usuario
      */
     public static function getInstance()
     {
         return new self();
     }
 
-    // LOGIN
+    /**
+     * Función para iniciar sesión
+     * 
+     * @return void
+     */
     public function login()
     {
         try {
@@ -33,21 +42,21 @@ class Usuario
                 $pass = $_POST['password'];
                 $error = '';
                 $validacion = validarUsuario($usuario, $pass);
-                if ($validacion['estado'] == 'correcto'){
+                if ($validacion['estado'] == 'correcto') {
                     $_SESSION['usuario'] = $validacion['usuario'];
                     $_SESSION['tipo'] = $validacion['tipo'];
                     $_SESSION['fecha'] = date('Y-m-d H:i:s');
                     return Tareas::getInstance()->Inicio();
-                } else if ($validacion['estado'] == 'formulario_incompleto'){
+                } else if ($validacion['estado'] == 'formulario_incompleto') {
                     $error = 'Debe introducir usuario y contraseña.';
                     return $this->blade->render('login', ['error' => $error]);
-                } else if ($validacion['estado'] == 'usuario_bloqueado'){
+                } else if ($validacion['estado'] == 'usuario_bloqueado') {
                     $error = 'Su usuario ha sido bloqueado. Por favor espere 10 minutos.';
                     return $this->blade->render('login', ['error' => $error]);
-                } else if ($validacion['estado'] == 'pass_incorrecta'){
+                } else if ($validacion['estado'] == 'pass_incorrecta') {
                     $error = 'Contraseña incorrecta.';
                     return $this->blade->render('login', ['error' => $error]);
-                } else if ($validacion['estado'] == 'usuario_no_existe'){
+                } else if ($validacion['estado'] == 'usuario_no_existe') {
                     $error = 'El usuario no existe.';
                     return $this->blade->render('login', ['error' => $error]);
                 }
@@ -59,9 +68,14 @@ class Usuario
         }
     }
 
-    // LOGOUT
-    public function logout(){
-        session_unset(); 
+    /**
+     * Función para finalizar sesión
+     * 
+     * @return void
+     */
+    public function logout()
+    {
+        session_unset();
         session_destroy();
         header('Location: login');
         exit;

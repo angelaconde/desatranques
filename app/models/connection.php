@@ -2,20 +2,26 @@
 
 class DB
 {
-
     protected static $con;
 
+    /**
+     * Constructor de la clase DB
+     * Protegido para el patrón Singleton
+     */
     protected function __construct()
     {
     }
 
+    /**
+     * Devuelve una instancia de la conexión a la base de datos
+     * Patrón Singleton
+     * 
+     * @return instance of protected variable
+     */
     public static function getcon()
     {
-
         if (empty(self::$con)) {
-
             include __DIR__ . '/../config.php';
-
             try {
                 self::$con = new PDO("mysql:host=" . $db_info['db_host'] . ';dbname=' . $db_info['db_name'], $db_info['db_user'], $db_info['db_pass']);
                 self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
@@ -25,7 +31,6 @@ class DB
                 echo $error->getMessage();
             }
         }
-
         return self::$con;
     }
 }

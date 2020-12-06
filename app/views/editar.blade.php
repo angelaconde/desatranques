@@ -1,30 +1,22 @@
+<?php
+include_once MODEL_PATH . 'editar.php';
+include MODEL_PATH . 'provincias.php';
+
+$stmt = getTareaByID($tarea_id);
+$tarea = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
 @extends('_template')
 
 @section('cuerpo')
 
-<?php
-include_once MODEL_PATH . 'editar.php';
-// PROVINCIAS
-include MODEL_PATH . 'provincias.php';
-
-// HEMOS RECIBIDO LA TAREA DESDE EL CONTROLADOR CON EL NOMBRE $tarea_id
-
-$stmt = getTareaByID($tarea_id);
-
-$tarea = $stmt->fetch(PDO::FETCH_ASSOC);
-
-?>
-
 <div class="container-fluid col-8">
-
-    <!-- FORMULARIO DE AÑADIR TAREA -->
     <form method="post">
         <div class="form-group">
             <label for="contacto" class="col-form-label">Persona de contacto</label>
             <input id="contacto" name="contacto" type="text" class="form-control" value="<?= $tarea['contacto'] ?>">
             <?= verError('contacto', $errores) ?>
         </div>
-
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="telefono" class="col-form-label">Teléfono</label>
@@ -37,13 +29,11 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
                 <?= verError('email', $errores) ?>
             </div>
         </div>
-
         <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripción de la tarea</label>
             <textarea id="descripcion" name="descripcion" rows="3" class="form-control"><?= $tarea['descripcion'] ?></textarea>
             <?= verError('descripcion', $errores) ?>
         </div>
-
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="direccion" class="col-form-label">Dirección</label>
@@ -56,7 +46,6 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
                 <?= verError('poblacion', $errores) ?>
             </div>
         </div>
-
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="cp" class="col-form-label">CP</label>
@@ -69,19 +58,18 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
                     <option selected disabled>Selecciona una Provincia</option>
                     <?php
                     foreach ($listaProvincias as $provincia) {
-                            if ($tarea['provincia'] != $provincia['cod']) {
-                                echo '<option  value=' . $provincia['cod'] . '>' . $provincia['nombre'] . '</option>';
-                            }
-                            if ($tarea['provincia'] == $provincia['cod']) {
-                                echo '<option  value=' . $provincia['cod'] . ' selected>' . $provincia['nombre'] . '</option>';
-                            }
+                        if ($tarea['provincia'] != $provincia['cod']) {
+                            echo '<option  value=' . $provincia['cod'] . '>' . $provincia['nombre'] . '</option>';
+                        }
+                        if ($tarea['provincia'] == $provincia['cod']) {
+                            echo '<option  value=' . $provincia['cod'] . ' selected>' . $provincia['nombre'] . '</option>';
+                        }
                     }
                     ?>
                 </select>
                 <?= verError('provincia', $errores) ?>
             </div>
         </div>
-
         <div class="form-row">
             <div class="form-group col-md-2">
                 <label class="col-form-label">Estado</label>
@@ -128,7 +116,6 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
                 <?= verError('fecha', $errores) ?>
             </div>
         </div>
-
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="anteriores" class="col-form-label">Anotaciones anteriores</label>
@@ -149,7 +136,5 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
     </form>
 </div>
-
-</html>
 
 @endsection

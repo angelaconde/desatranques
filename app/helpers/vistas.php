@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Convierte el estado de sigla a palabra completa
+ * 
+ * @return string
+ */
 function formatearEstado($estado)
 {
     switch ($estado) {

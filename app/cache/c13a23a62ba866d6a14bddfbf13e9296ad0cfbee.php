@@ -6,33 +6,15 @@
 
     <?php
 
-    // CONEXION A LA BASE DE DATOS
-    // include MODEL_PATH . 'connection.php';
-    // $con = DB::getcon();
-
-    // PROVINCIAS
     include MODEL_PATH . 'provincias.php';
+    include HELPERS_PATH . 'vistas.php';
 
-    // HEMOS RECIBIDO LA TAREA DESDE EL CONTROLADOR CON EL NOMBRE $tarea_id
-
-    // OBTENER TAREA POR ID
     $stmt = getTareaByID($tarea_id);
 
     while ($tarea = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($tarea);
         $nombreProvincia = provCodANombre($provincia);
-        // FORMATEAR ESTADO
-        switch ($estado) {
-            case 'P':
-                $estado = 'Pendiente';
-                break;
-            case 'R':
-                $estado = 'Realizada';
-                break;
-            case 'C':
-                $estado = 'Cancelada';
-                break;
-        }
+        $estado = formatearEstado($estado);
         ?>
                 <div class="col container text-center p-3">
                     <div>
@@ -63,6 +45,5 @@
 
 </div>
 
-</body>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('_template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\desatranques\app\views/eliminar.blade.php ENDPATH**/ ?>

@@ -1,27 +1,16 @@
 <?php
 
-// CONEXION A LA BASE DE DATOS
-include_once(MODEL_PATH . 'connection.php');
-include_once(HELPERS_PATH . 'validaciones.php');
+include_once MODEL_PATH . 'connection.php';
+include_once HELPERS_PATH . 'validaciones.php';
+
 $con = DB::getcon();
-
-// LISTA DE PROVINCIAS PARA RELLENAR EL SELECT DEL FORMULARIO
-$sqlProv = 'SELECT * FROM provincias';
-foreach ($con->query($sqlProv) as $provincia) {
-    $listaProvincias[] = $provincia;
-}
-
-// LISTA DE OPERARIOS PARA RELLENAR EL SELECT DEL FORMULARIO
-$sqlOpe = 'SELECT nombre FROM usuarios WHERE tipo = "operario"';
-foreach ($con->query($sqlOpe) as $operario) {
-    $listaOperarios[] = $operario;
-}
 
 $errores = [];
 $correcto = true;
 
 if ($_POST) {
     try {
+
         // QUERY DE INSERTAR
         $query = "INSERT INTO tareas SET 
         contacto=:contacto, 
@@ -36,10 +25,8 @@ if ($_POST) {
         operario=:operario,
         fecha_realizacion=:fecha,
         anotaciones_anteriores=:anteriores";
-
         // PREPARACION DE LA QUERY
         $stmt = $con->prepare($query);
-
         // FILTRADO
         if (empty($_POST['descripcion'])) {
             $errores['descripcion'] = 'Debe incluir una descripción.';

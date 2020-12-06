@@ -1,5 +1,6 @@
 <?php
 
+// INICIO DE SESION
 session_start();
 
 // RUTAS DE DIRECTORIOS
@@ -13,24 +14,19 @@ if (!defined('APP_PATH')) {
 }
 
 // INCLUDES
-// include (HELPERS_PATH.'vistas.php');
-include (CTRL_PATH.'tareas.php');
-include (CTRL_PATH.'usuarios.php');
+require_once CTRL_PATH . 'tareas.php';
+require_once CTRL_PATH . 'usuarios.php';
+require_once __DIR__ .  '../../vendor/autoload.php';
 
 // SIMPLIFICACION DE NOMBRES DE INTERFACES
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-// REQUERIR COMPONENTES
-require __DIR__ .  '../../vendor/autoload.php';
-
-// MOSTRAR ERRORES DETALLADOS
-$config['displayErrorDetails'] = true;
-
 // URL DE LA APLICACION
 define('BASE_URL', 'http://localhost/desatranques/app/index.php/');
 
 // NUEVA INSTANCIA DE SLIM
+$config['displayErrorDetails'] = true;
 $app = new \Slim\App(['settings' => $config]);
 
 // LOGIN
