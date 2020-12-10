@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Modelo de conexión a la base de datos con patrón Singleton
+ * 
+ * @author Angela Conde
+ */
+
+/**
+ * Clase DB
+ */
 class DB
 {
     protected static $con;
@@ -21,7 +30,7 @@ class DB
     public static function getcon()
     {
         if (empty(self::$con)) {
-            include __DIR__ . '/../config.php';
+            include APP_PATH . 'config.php';
             try {
                 self::$con = new PDO("mysql:host=" . $db_info['db_host'] . ';dbname=' . $db_info['db_name'], $db_info['db_user'], $db_info['db_pass']);
                 self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);

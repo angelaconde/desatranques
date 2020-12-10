@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Modelo de completar tarea
+ * 
+ * @author Angela Conde
+ */
+
 include_once MODEL_PATH . 'connection.php';
 
 $con = DB::getcon();

@@ -1,8 +1,16 @@
 <?php
 
 /**
+ * Modelo de login de usuario
+ * 
+ * @author Angela Conde
+ */
+
+/**
  * Función que comprueba las credenciales del usuario
  * 
+ * @param string $usuario
+ * @param string $pass
  * @return array
  */
 function validarUsuario($usuario, $pass)
@@ -25,7 +33,7 @@ function validarUsuario($usuario, $pass)
         if (!$usuarioExiste) {
             $loginInfo = ['estado' => 'usuario_no_existe', 'usuario' => '', 'tipo' => ''];
             return $loginInfo;
-        // SI EXISTE
+            // SI EXISTE
         } else {
             // COMPROBAR BLOQUEO
             $sql_query = "select intentos_fallidos from usuarios where usuario='$usuario'";
@@ -65,7 +73,7 @@ function validarUsuario($usuario, $pass)
                         $sql_query = "update usuarios set intentos_fallidos = '0' where usuario='$usuario'";
                         $con->prepare($sql_query)->execute();
                         return $loginInfo;
-                    // EN CASO DE QUE USUARIO Y CONTRASEÑA NO SEAN CORRECTOS
+                        // EN CASO DE QUE USUARIO Y CONTRASEÑA NO SEAN CORRECTOS
                     } else {
                         // SUMAR 1 AL NUMERO DE INTENTOS FALLIDOS
                         $intentos_insertar = ++$intentos;
@@ -79,12 +87,12 @@ function validarUsuario($usuario, $pass)
                             $con->prepare($sql_query)->execute();
                         }
                     }
-                // SI NO HAN TRANSCURRIDO LOS 10 MINUTOS    
+                    // SI NO HAN TRANSCURRIDO LOS 10 MINUTOS    
                 } else {
                     $loginInfo = ['estado' => 'usuario_bloqueado', 'usuario' => '', 'tipo' => ''];
                     return $loginInfo;
                 }
-            // SI ESTÁ DESBLOQUEADO
+                // SI ESTÁ DESBLOQUEADO
             } else {
                 // COMPROBAR USUARIO Y CONTRASEÑA
                 $sql_query = "select count(*) as numero_usuarios from usuarios where usuario='$usuario' and pass='$pass'";
@@ -103,7 +111,7 @@ function validarUsuario($usuario, $pass)
                     $sql_query = "update usuarios set intentos_fallidos = '0' where usuario='$usuario'";
                     $con->prepare($sql_query)->execute();
                     return $loginInfo;
-                // EN CASO DE QUE USUARIO Y CONTRASEÑA NO SEAN CORRECTOS
+                    // EN CASO DE QUE USUARIO Y CONTRASEÑA NO SEAN CORRECTOS
                 } else {
                     // SUMAR 1 AL NUMERO DE INTENTOS FALLIDOS
                     $intentos_insertar = ++$intentos;

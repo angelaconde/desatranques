@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Inicio de la aplicación
+ * 
+ * @author Angela Conde
+ */
+
 // INICIO DE SESION
 session_start();
 
@@ -11,12 +17,13 @@ if (!defined('APP_PATH')) {
     define('VIEW_PATH', __DIR__ . '/views/');
     define('HELPERS_PATH', __DIR__ . '/helpers/');
     define('CACHE_PATH', __DIR__ . '/cache/');
+    define('VENDOR_PATH', __DIR__ . '../../vendor/');
 }
 
 // INCLUDES
 require_once CTRL_PATH . 'tareas.php';
 require_once CTRL_PATH . 'usuarios.php';
-require_once __DIR__ .  '../../vendor/autoload.php';
+require_once VENDOR_PATH . 'autoload.php';
 
 // SIMPLIFICACION DE NOMBRES DE INTERFACES
 use \Psr\Http\Message\ServerRequestInterface as Request;

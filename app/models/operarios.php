@@ -1,6 +1,13 @@
 <?php
+
 /**
- * Función para obtener la lista de operarios de la base de datos
+ * Modelo de operarios
+ * 
+ * @author Angela Conde
+ */
+
+/**
+ * Función para obtener la lista de nombres de operarios de la base de datos
  * 
  * @return array
  */

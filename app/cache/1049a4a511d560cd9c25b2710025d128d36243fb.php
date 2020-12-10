@@ -3,7 +3,6 @@
 <?php $__env->startSection('cuerpo'); ?>
 
 <?php
-// include_once MODEL_PATH . 'buscar.php';
 include_once MODEL_PATH . 'operarios.php';
 
 $listaOperarios = getOperarios();

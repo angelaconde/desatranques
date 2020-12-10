@@ -1,8 +1,16 @@
 <?php
 
 /**
+ * Funciones para validar datos recibidos
+ * 
+ * @author Angela Conde
+ */
+
+
+/**
  * Valida números de teléfono
  * 
+ * @param string $telefono
  * @return boolean
  */
 function validarTelefono($telefono)
@@ -21,6 +29,7 @@ function validarTelefono($telefono)
 /**
  * Valida email
  * 
+ * @param string $email
  * @return boolean
  */
 function validarEmail($email)
@@ -35,6 +44,7 @@ function validarEmail($email)
 /**
  * Valida código postal
  * 
+ * @param string $cp
  * @return boolean
  */
 function validarCP($cp)
@@ -51,6 +61,7 @@ function validarCP($cp)
 /**
  * Valida formato de fecha
  * 
+ * @param string $fecha
  * @return boolean
  */
 function validarFormatoFecha($fecha)
@@ -73,6 +84,7 @@ function validarFormatoFecha($fecha)
 /**
  * Valida que la fecha sea posterior a la actual
  * 
+ * @param string $fecha
  * @return boolean
  */
 function validarFecha($fecha)
@@ -91,6 +103,7 @@ function validarFecha($fecha)
 /**
  * Valida que se haya seleccionado una opción del select
  * 
+ * @param string $option
  * @return boolean
  */
 function validarSelects($option)
@@ -106,6 +119,8 @@ function validarSelects($option)
  * Comprueba que se haya recibido un valor para el campo
  * y en caso negativo lo crea vacío
  * 
+ * @param string $nombreCampo
+ * @param string $valorPorDefecto
  * @return string
  */
 function valorPost($nombreCampo, $valorPorDefecto = '')
@@ -119,6 +134,8 @@ function valorPost($nombreCampo, $valorPorDefecto = '')
 /**
  * Muestra errores
  * 
+ * @param string $campo
+ * @param array $errores
  * @return void
  */
 function verError($campo, $errores)

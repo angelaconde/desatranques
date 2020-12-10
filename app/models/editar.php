@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Modelo de editar tarea
+ * 
+ * @author Angela Conde
+ */
+
 include_once MODEL_PATH . 'connection.php';
 include_once HELPERS_PATH . 'validaciones.php';
 

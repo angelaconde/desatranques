@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Modelo de provincias
+ * 
+ * @author Angela Conde
+ */
+
 include_once MODEL_PATH . 'connection.php';
 
 /**
@@ -20,6 +26,7 @@ function getProvincias()
 /** 
  * Función para convertir el código de provincia a nombre
  * 
+ * @param integer $cod
  * @return string
  */
 function provCodANombre($cod)

@@ -1,10 +1,18 @@
 <?php
 
+/**
+ * Modelo de tareas
+ * 
+ * @author Angela Conde
+ */
+
 include_once MODEL_PATH . 'connection.php';
 
 /**
  * Extrae las 5 tareas siguientes de la base de datos
  * 
+ * @param int $desde
+ * @param int $tareasPorPagina
  * @return mixed
  */
 function getTareasSiguientes($desde, $tareasPorPagina)
@@ -21,6 +29,7 @@ function getTareasSiguientes($desde, $tareasPorPagina)
 /**
  * Cuenta el número de resultados
  * 
+ * @param mixed $stmt
  * @return int
  */
 function getTareasNumero($stmt)
@@ -32,6 +41,7 @@ function getTareasNumero($stmt)
 /**
  * Extrae tarea
  * 
+ * @param mixed $stmt
  * @return mixed
  */
 function getTareas($stmt)
@@ -59,6 +69,7 @@ function getTareasTotal()
 /**
  * Extrae una tarea por su ID
  * 
+ * @param int $tarea_id
  * @return mixed
  */
 function getTareaByID($tarea_id)
@@ -73,6 +84,7 @@ function getTareaByID($tarea_id)
 /**
  * Borra una tarea por su ID
  * 
+ * @param int $tarea_id
  * @return void
  */
 function borrarTarea($tarea_id)
@@ -87,6 +99,9 @@ function borrarTarea($tarea_id)
 /**
  * Busca una tarea por varios parámetros
  * 
+ * @param string $estado
+ * @param string $operario
+ * @param string $cp
  * @return mixed
  */
 function buscarTareas($estado, $operario, $cp)

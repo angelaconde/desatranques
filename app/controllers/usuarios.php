@@ -1,9 +1,18 @@
 <?php
 
+/**
+ * Controlador de Usuarios
+ * 
+ * @author Angela Conde
+ */
+
 use Jenssegers\Blade\Blade;
 
 include_once MODEL_PATH . 'login.php';
 
+/**
+ * Clase Usuario
+ */
 class Usuario
 {
     protected $blade = null;

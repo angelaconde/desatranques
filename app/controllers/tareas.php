@@ -1,10 +1,19 @@
 <?php
 
+/**
+ * Controlador de Tareas
+ * 
+ * @author Angela Conde
+ */
+
 use Jenssegers\Blade\Blade;
 
-include(HELPERS_PATH . 'validaciones.php');
-include(MODEL_PATH . 'tareas.php');
+include_once HELPERS_PATH . 'validaciones.php';
+include_once MODEL_PATH . 'tareas.php';
 
+/**
+ * Clase Tareas
+ */
 class Tareas
 {
     protected $blade = null;
