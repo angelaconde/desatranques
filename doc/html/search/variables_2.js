@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['else_185',['else',['../lista_8blade_8php.html#a3b79f939f7f84c0e7183b20f1bb59231',1,'lista.blade.php']]]
+  ['base_5furl_250',['BASE_URL',['../index_8php.html#ac2f7c46cdf071163a82cb95295eca57f',1,'index.php']]]
 ];

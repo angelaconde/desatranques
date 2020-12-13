@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['readme_2emd_85',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]]
+  ['db_69',['DB',['../class_d_b.html',1,'']]],
+  ['del_70',['Del',['../class_tareas.html#aac69efa0a71fcc73dfb69ee6669385f8',1,'Tareas']]]
 ];

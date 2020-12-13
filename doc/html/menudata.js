@@ -24,7 +24,6 @@
 */
 var menudata={children:[
 {text:"Página principal",url:"index.html"},
-{text:"Páginas relacionadas",url:"pages.html"},
 {text:"Estructuras de Datos",url:"annotated.html",children:[
 {text:"Estructura de datos",url:"annotated.html"},
 {text:"Índice de estructura de datos",url:"classes.html"},
@@ -37,8 +36,10 @@ var menudata={children:[
 {text:"Globales",url:"globals.html",children:[
 {text:"Todo",url:"globals.html",children:[
 {text:"$",url:"globals.html#index__24"},
+{text:"_",url:"globals.html#index__5F"},
 {text:"b",url:"globals.html#index_b"},
 {text:"e",url:"globals.html#index_e"},
+{text:"f",url:"globals.html#index_f"},
 {text:"g",url:"globals.html#index_g"},
 {text:"i",url:"globals.html#index_i"},
 {text:"p",url:"globals.html#index_p"},
@@ -46,6 +47,8 @@ var menudata={children:[
 {text:"Funciones",url:"globals_func.html"},
 {text:"Variables",url:"globals_vars.html",children:[
 {text:"$",url:"globals_vars.html#index__24"},
+{text:"_",url:"globals_vars.html#index__5F"},
 {text:"b",url:"globals_vars.html#index_b"},
 {text:"e",url:"globals_vars.html#index_e"},
+{text:"f",url:"globals_vars.html#index_f"},
 {text:"i",url:"globals_vars.html#index_i"}]}]}]}]}

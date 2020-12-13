@@ -24,11 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Desatranques Jaen", "index.html", [
-    [ "PRACTICA SERVIDOR 2ºDAW", "md__c__xampp_htdocs_desatranques__r_e_a_d_m_e.html", [
-      [ "HECHO:", "md__c__xampp_htdocs_desatranques__r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "POR HACER:", "md__c__xampp_htdocs_desatranques__r_e_a_d_m_e.html#autotoc_md2", null ]
-    ] ],
+  [ "Desatranques", "index.html", [
     [ "Estructuras de Datos", "annotated.html", [
       [ "Estructura de datos", "annotated.html", "annotated_dup" ],
       [ "Índice de estructura de datos", "classes.html", null ],
@@ -51,7 +47,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"__template_8blade_8php.html"
+"1049a4a511d560cd9c25b2710025d128d36243fb_8php.html"
 ];
 
 var SYNCONMSG = 'click en deshabilitar sincronización';

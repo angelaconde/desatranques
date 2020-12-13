@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['lista_2eblade_2ephp_73',['lista.blade.php',['../lista_8blade_8php.html',1,'']]],
-  ['listar_74',['Listar',['../class_tareas.html#a8397d03b94bae104d49840b48b1e72b1',1,'Tareas']]],
-  ['login_75',['login',['../class_usuario.html#aa311da27ba5706f5710cea7706c8eae1',1,'Usuario']]],
-  ['login_2eblade_2ephp_76',['login.blade.php',['../login_8blade_8php.html',1,'']]],
-  ['login_2ephp_77',['login.php',['../login_8php.html',1,'']]],
-  ['logout_78',['logout',['../class_usuario.html#a082405d89acd6835c3a7c7a08a7adbab',1,'Usuario']]]
+  ['a6f3f93daf20519713601ef5f9a3d0accb71e6bb_2ephp_46',['a6f3f93daf20519713601ef5f9a3d0accb71e6bb.php',['../a6f3f93daf20519713601ef5f9a3d0accb71e6bb_8php.html',1,'']]],
+  ['a8489c120672338be7f74c8472807d73b9dda61c_2ephp_47',['a8489c120672338be7f74c8472807d73b9dda61c.php',['../a8489c120672338be7f74c8472807d73b9dda61c_8php.html',1,'']]],
+  ['acceso_5fnegado_2eblade_2ephp_48',['acceso_negado.blade.php',['../acceso__negado_8blade_8php.html',1,'']]],
+  ['add_49',['Add',['../class_tareas.html#aa01926f2a5616fc32bbdcdb6e36fb63a',1,'Tareas']]]
 ];

@@ -1,5 +1,0 @@
-var dir_94d0919b4b473f5a47e985a982c549a7 =
-[
-    [ "app", "dir_222765241c23805bcf04336e73a7f2d2.html", "dir_222765241c23805bcf04336e73a7f2d2" ],
-    [ "install", "dir_9a07e05d65f82a49e5e40db6ea687286.html", "dir_9a07e05d65f82a49e5e40db6ea687286" ]
-];

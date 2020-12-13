@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['acceso_5fnegado_2eblade_2ephp_30',['acceso_negado.blade.php',['../acceso__negado_8blade_8php.html',1,'']]],
-  ['add_31',['Add',['../class_tareas.html#aa01926f2a5616fc32bbdcdb6e36fb63a',1,'Tareas']]]
+  ['23b580e9f5e06cf9fb974d436064fef5b4ef9648_2ephp_34',['23b580e9f5e06cf9fb974d436064fef5b4ef9648.php',['../23b580e9f5e06cf9fb974d436064fef5b4ef9648_8php.html',1,'']]]
 ];

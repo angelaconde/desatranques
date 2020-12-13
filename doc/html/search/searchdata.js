@@ -1,11 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "$_abcdegiloprtuv",
+  0: "$1245689_abcdefgiloptuv",
   1: "dtu",
-  2: "_abceiloprtu",
-  3: "_abcdegilpv",
-  4: "$bei",
-  5: "p"
+  2: "1245689_abcefiloptuv",
+  3: "_abcdefgilpv",
+  4: "$_befi"
 };
 
 var indexSectionNames =
@@ -14,8 +13,7 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "variables",
-  5: "pages"
+  4: "variables"
 };
 
 var indexSectionLabels =
@@ -24,7 +22,6 @@ var indexSectionLabels =
   1: "Estructuras de Datos",
   2: "Archivos",
   3: "Funciones",
-  4: "Variables",
-  5: "Páginas"
+  4: "Variables"
 };
 
