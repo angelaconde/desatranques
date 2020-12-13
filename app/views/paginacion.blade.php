@@ -36,11 +36,11 @@
 
         <!-- BOTONES DE PAGINAS -->
         <?php foreach ($paginas as $p) : ?>
-            <li class='page-item <?= $p['active'] ? 'active' : "" ?>'>
-                <a class='page-link' href='<?= $paginaUrl ?>page=<?= $p['numero'] ?>'>
-                    <?= $p['numero'] ?>
-                </a>
-            </li>
+        <li class='page-item <?= $p['active'] ? 'active' : "" ?>'>
+            <a class='page-link' href='<?= $paginaUrl ?>page=<?= $p['numero'] ?>'>
+                <?= $p['numero'] ?>
+            </a>
+        </li>
         <?php endforeach; ?>
 
         <!-- BOTON IR A SIGUIENTE PAGINA -->

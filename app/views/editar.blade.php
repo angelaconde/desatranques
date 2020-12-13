@@ -35,18 +35,21 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
         <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripción de la tarea</label>
-            <textarea id="descripcion" name="descripcion" rows="3" class="form-control"><?= $tarea['descripcion'] ?></textarea>
+            <textarea id="descripcion" name="descripcion" rows="3"
+                class="form-control"><?= $tarea['descripcion'] ?></textarea>
             <?= verError('descripcion', $errores) ?>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="direccion" class="col-form-label">Dirección</label>
-                <input id="direccion" name="direccion" type="text" class="form-control" value="<?= $tarea['direccion'] ?>">
+                <input id="direccion" name="direccion" type="text" class="form-control"
+                    value="<?= $tarea['direccion'] ?>">
                 <?= verError('direccion', $errores) ?>
             </div>
             <div class="form-group col-md-6">
                 <label for="poblacion" class="col-form-label">Población</label>
-                <input id="poblacion" name="poblacion" type="text" class="form-control" value="<?= $tarea['poblacion'] ?>">
+                <input id="poblacion" name="poblacion" type="text" class="form-control"
+                    value="<?= $tarea['poblacion'] ?>">
                 <?= verError('poblacion', $errores) ?>
             </div>
         </div>
@@ -79,19 +82,22 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
                 <label class="col-form-label">Estado</label>
                 <div class="custom-controls-stacked">
                     <div class="custom-control custom-radio">
-                        <input name="estado" id="estado_0" type="radio" class="custom-control-input" value="P" <?= ($tarea['estado'] == 'P') ? "checked='checked'" : '' ?>>
+                        <input name="estado" id="estado_0" type="radio" class="custom-control-input" value="P"
+                            <?= ($tarea['estado'] == 'P') ? "checked='checked'" : '' ?>>
                         <label for="estado_0" class="custom-control-label">Pendiente</label>
                     </div>
                 </div>
                 <div class="custom-controls-stacked">
                     <div class="custom-control custom-radio">
-                        <input name="estado" id="estado_1" type="radio" class="custom-control-input" value="R" <?= ($tarea['estado'] == 'R') ? "checked='checked'" : '' ?>>
+                        <input name="estado" id="estado_1" type="radio" class="custom-control-input" value="R"
+                            <?= ($tarea['estado'] == 'R') ? "checked='checked'" : '' ?>>
                         <label for="estado_1" class="custom-control-label">Realizada</label>
                     </div>
                 </div>
                 <div class="custom-controls-stacked">
                     <div class="custom-control custom-radio">
-                        <input name="estado" id="estado_2" type="radio" class="custom-control-input" value="C" <?= ($tarea['estado'] == 'C') ? "checked='checked'" : '' ?>>
+                        <input name="estado" id="estado_2" type="radio" class="custom-control-input" value="C"
+                            <?= ($tarea['estado'] == 'C') ? "checked='checked'" : '' ?>>
                         <label for="estado_2" class="custom-control-label">Cancelada</label>
                     </div>
                 </div>
@@ -116,26 +122,29 @@ $tarea = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
             <div class="form-group col-md-5">
                 <label for="fecha" class="col-form-label">Fecha de realización</label>
-                <input id="fecha" name="fecha" type="text" class="form-control" value="<?= $tarea['fecha_realizacion'] ?>">
+                <input id="fecha" name="fecha" type="text" class="form-control"
+                    value="<?= $tarea['fecha_realizacion'] ?>">
                 <?= verError('fecha', $errores) ?>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="anteriores" class="col-form-label">Anotaciones anteriores</label>
-                <textarea id="anteriores" name="anteriores" cols="40" rows="5" class="form-control"><?= $tarea['anotaciones_anteriores'] ?></textarea>
+                <textarea id="anteriores" name="anteriores" cols="40" rows="5"
+                    class="form-control"><?= $tarea['anotaciones_anteriores'] ?></textarea>
                 <?= verError('anteriores', $errores) ?>
             </div>
             <div class="form-group col-md-6">
                 <label for="posteriores" class="col-form-label">Anotaciones posteriores</label>
-                <textarea id="posteriores" name="posteriores" cols="40" rows="5" class="form-control"><?= $tarea['anotaciones_posteriores'] ?></textarea>
+                <textarea id="posteriores" name="posteriores" cols="40" rows="5"
+                    class="form-control"><?= $tarea['anotaciones_posteriores'] ?></textarea>
                 <?= verError('posteriores', $errores) ?>
             </div>
         </div>
         <div class="form-row">
             <div class="col text-center p-3">
                 <input type='submit' value='Actualizar tarea' class='btn btn-primary'>
-                <a href='{{BASE_URL}}lista' class='btn btn-danger'>Cancelar</a>
+                <a href='{{ BASE_URL }}lista' class='btn btn-danger'>Cancelar</a>
             </div>
         </div>
     </form>

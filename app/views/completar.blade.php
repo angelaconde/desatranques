@@ -19,16 +19,16 @@ $estado = formatearEstado($estado);
 <div class="col container text-center p-3">
     <div>
         <h3 class="font-weight-light"> DATOS DE CLIENTE </h3>
-        <p>Nombre: {{$contacto}} | Teléfono: {{$telefono}} | Email: {{$email}}</p>
+        <p>Nombre: {{ $contacto }} | Teléfono: {{ $telefono }} | Email: {{ $email }}</p>
     </div>
     <div>
         <h3 class="font-weight-light"> DATOS DE TAREA </h3>
-        <p>Descripción: {{$descripcion}}</p>
-        <p>Dirección: {{$direccion}}</p>
-        <p>Población: {{$poblacion}} | CP: {{$cp}} | Provincia: {{$nombreProvincia}}</p>
-        <p>Fecha de creación: {{$fechaFormateada}}</p>
-        <p>Operario: {{$operario}} | Fecha de realización: {{$fecha_realizacion}}</p>
-        <p>Anotaciones anteriores: {{$anotaciones_anteriores}}</p>
+        <p>Descripción: {{ $descripcion }}</p>
+        <p>Dirección: {{ $direccion }}</p>
+        <p>Población: {{ $poblacion }} | CP: {{ $cp }} | Provincia: {{ $nombreProvincia }}</p>
+        <p>Fecha de creación: {{ $fechaFormateada }}</p>
+        <p>Operario: {{ $operario }} | Fecha de realización: {{ $fecha_realizacion }}</p>
+        <p>Anotaciones anteriores: {{ $anotaciones_anteriores }}</p>
     </div>
 </div>
 
@@ -46,7 +46,8 @@ $estado = formatearEstado($estado);
                 </div>
                 <div class="custom-controls-stacked">
                     <div class="custom-control custom-radio">
-                        <input name="estado" id="estado_1" type="radio" class="custom-control-input" value="R" checked="checked">
+                        <input name="estado" id="estado_1" type="radio" class="custom-control-input" value="R"
+                            checked="checked">
                         <label for="estado_1" class="custom-control-label">Realizada</label>
                     </div>
                 </div>
@@ -59,17 +60,18 @@ $estado = formatearEstado($estado);
             </div>
             <div class="form-group col-md-6">
                 <label for="posteriores" class="col-form-label">Anotaciones posteriores</label>
-                <textarea id="posteriores" name="posteriores" rows="5" class="form-control"><?= $anotaciones_posteriores ?></textarea>
+                <textarea id="posteriores" name="posteriores" rows="5"
+                    class="form-control"><?= $anotaciones_posteriores ?></textarea>
             </div>
         </div>
+</div>
+<div class="form-row">
+    <div class="col text-center p-3">
+        <input type='submit' value='Completar tarea' class='btn btn-primary'>
+        <a href='{{ BASE_URL }}lista' class='btn btn-danger'>Cancelar</a>
     </div>
-        <div class="form-row">
-            <div class="col text-center p-3">
-                <input type='submit' value='Completar tarea' class='btn btn-primary'>
-                <a href='{{BASE_URL}}lista' class='btn btn-danger'>Cancelar</a>
-            </div>
-        </div>
-    </form>
+</div>
+</form>
 </div>
 
 @endsection
