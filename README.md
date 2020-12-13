@@ -1,4 +1,4 @@
-# PRACTICA SERVIDOR 2ºDAW
+# PRÁCTICA SERVIDOR 2ºDAW
 
 ![Preview](https://github.com/angelaconde/desatranques/blob/master/doc/preview.png)
 
